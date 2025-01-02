@@ -28,26 +28,26 @@ namespace UnambaRepoApi.Modules.User.Infraestructure.Controller
             return Ok(response);
         }
 
-        // GET api/<UserController>/5
+        // GET api/<TeacherController>/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST api/<UserController>
+        // POST api/<TeacherController>
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT api/<UserController>/5
+        // PUT api/<TeacherController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<UserController>/5
+        // DELETE api/<TeacherController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

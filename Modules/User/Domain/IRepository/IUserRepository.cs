@@ -5,5 +5,5 @@ namespace UnambaRepoApi.Modules.User.Domain.IRepository;
 
 public interface IUserRepository : IBaseRepository
 {
-    Task<IEnumerable<UserEntity>> GetAllAsync();
+    Task<IEnumerable<UserEntity>> GetAllUserAsync();
 }

@@ -13,7 +13,7 @@ public class UserRepository : BaseRepository<MySqlContext>, IUserRepository
     {
     }
     
-    public async Task<IEnumerable<UserEntity>> GetAllAsync()
+    public async Task<IEnumerable<UserEntity>> GetAllUserAsync()
     {
         return await _context.Users.ToListAsync();
     }
