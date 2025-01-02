@@ -5,6 +5,7 @@ using UnambaRepoApi.Modules.User.Domain.IRepository;
 using UnambaRepoApi.Modules.User.Infraestructure.Presenter;
 using UnambaRepoApi.Modules.User.Infraestructure.Repository;
 using Microsoft.EntityFrameworkCore;
+using UnambaRepoApi.Configuration.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
