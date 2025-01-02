@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UnambaRepoApi.Configuration.Context;
-using UnambaRepoApi.Configuration.DataBase;
 
 #nullable disable
 

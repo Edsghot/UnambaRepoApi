@@ -15,12 +15,21 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<MySqlContext>(options =>
-    options.UseMySql(builder.Configuration.GetConnectionString("MySQLConnection"),
-    new MySqlServerVersion(new Version(8, 0, 21))));
+builder.Services.AddDbContext<MySqlContext>();
 builder.Services.AddScoped<IUserInputPort, UserAdapter>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserOutPort, UserPresenter>();
+
+// Configuración de CORS para permitir cualquier origen
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
 
@@ -32,6 +41,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Habilitar CORS para todos los orígenes
+app.UseCors("AllowAll");
 
 app.UseAuthorization();
 

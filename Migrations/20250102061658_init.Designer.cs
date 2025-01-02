@@ -4,14 +4,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using UnambaRepoApi.Configuration.DataBase;
+using UnambaRepoApi.Configuration.Context;
 
 #nullable disable
 
-namespace jhedgostBK.Migrations
+namespace UnambaRepoApi.Migrations
 {
     [DbContext(typeof(MySqlContext))]
-    [Migration("20250102055654_init")]
+    [Migration("20250102061658_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
