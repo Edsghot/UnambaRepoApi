@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "jhedgostBK": {
+    "UnambaRepoApi": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using UnambaRepoApi.Configuration.DataBase.EntityConfigurations;
 using UnambaRepoApi.Modules.User.Domain.Entity;
 
-namespace UnambaRepoApi.Configuration.DataBase
+namespace UnambaRepoApi.Configuration.Context
 {
     public class MySqlContext : DbContext
     {
