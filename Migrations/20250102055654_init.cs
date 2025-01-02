@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace jhedgostBK.Migrations
+namespace UnambaRepoApi.Migrations
 {
     public partial class init : Migration
     {

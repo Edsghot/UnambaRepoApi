@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using UnambaRepoApi.Configuration.Context;
 using UnambaRepoApi.Configuration.Context.Repository;
 using UnambaRepoApi.Configuration.DataBase;
 using UnambaRepoApi.Modules.User.Domain.Entity;
