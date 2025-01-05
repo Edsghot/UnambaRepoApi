@@ -34,26 +34,26 @@ public class TeacherController : ControllerBase
         return Ok(response);
     }
 
-    // GET api/<TeacherController>/5
+    // GET api/<ResearchController>/5
     [HttpGet("{id}")]
     public string Get(int id)
     {
         return "value";
     }
 
-    // POST api/<TeacherController>
+    // POST api/<ResearchController>
     [HttpPost]
     public void Post([FromBody] string value)
     {
     }
 
-    // PUT api/<TeacherController>/5
+    // PUT api/<ResearchController>/5
     [HttpPut("{id}")]
     public void Put(int id, [FromBody] string value)
     {
     }
 
-    // DELETE api/<TeacherController>/5
+    // DELETE api/<ResearchController>/5
     [HttpDelete("{id}")]
     public void Delete(int id)
     {

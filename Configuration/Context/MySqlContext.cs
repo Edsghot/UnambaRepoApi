@@ -35,5 +35,7 @@ public class MySqlContext : DbContext
         modelBuilder.ApplyConfiguration(new WorkExperienceEntityConfiguration());
         modelBuilder.ApplyConfiguration(new TeachingExperienceEntityConfiguration());
         modelBuilder.ApplyConfiguration(new ThesisAdvisingExperienceEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new ScientificArticleEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new ResearchProjectEntityConfiguration());
     }
 }

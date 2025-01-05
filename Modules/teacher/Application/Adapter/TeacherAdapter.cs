@@ -39,12 +39,7 @@ public class TeacherAdapter : ITeacherInputPort
 
     public async Task GetAllAsync()
     {
-        var teachers = await _teacherRepository.GetAllAsync<TeacherEntity>(
-            query => query
-                .Include(t => t.TeachingExperiences)
-                .Include(t => t.WorkExperiences)
-                .Include(t => t.ThesisAdvisingExperiences).AsNoTracking()
-        );
+        var teachers = await _teacherRepository.GetAllAsync<TeacherEntity>();
 
         var teacherEntities = teachers.ToList();
         if (!teacherEntities.Any())
