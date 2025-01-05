@@ -38,7 +38,12 @@ public class ResearchController : ControllerBase
     [HttpGet("pecanoSrc")]
     public IActionResult PecanoSrc()
     {
-         var response = new
+
+        var response = new
+        {
+            message = "ok",
+            success = true,
+            data = new
             {
                 NomTipoDocumento = "Factura Electronica",
                 AbrevTipoDocumento = "FA",
@@ -88,8 +93,8 @@ public class ResearchController : ControllerBase
                 PlacaTransportista = "ARI-836",
                 LicenciaTransportista = "H-43381852",
                 MarcaTransportista = "HYUNDAI"
-            };
-
+            }
+        };
             return Ok(response);
     }
 

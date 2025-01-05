@@ -44,7 +44,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Launch Settings Profile.UnamaRepoApi: IIS Express.executor": "Run",
+    ".NET Launch Settings Profile.UnamaRepoApi: IIS Express.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "ToolWindow.Database.ShowToolbar": "false",
@@ -125,6 +125,7 @@
       <workItem from="1736012856066" duration="1035000" />
       <workItem from="1736014494034" duration="2412000" />
       <workItem from="1736026052711" duration="19627000" />
+      <workItem from="1736119295387" duration="535000" />
     </task>
     <servers />
   </component>
