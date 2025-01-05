@@ -17,9 +17,24 @@ public abstract class BaseRepository<TContext> : IBaseRepository where TContext 
         return await _context.Set<TEntity>().FirstOrDefaultAsync(predicate);
     }
 
-    public async Task<IEnumerable<TEntity>> GetAllAsync<TEntity>() where TEntity : class
+    public async Task<TEntity?> GetAsync<TEntity>(
+        Expression<Func<TEntity, bool>> predicate,
+        Func<IQueryable<TEntity>, IQueryable<TEntity>>? include = null) where TEntity : class
     {
-        return await _context.Set<TEntity>().ToListAsync();
+        IQueryable<TEntity> query = _context.Set<TEntity>();
+
+        if (include != null) query = include(query);
+
+        return await query.FirstOrDefaultAsync(predicate);
+    }
+
+    public async Task<IEnumerable<T>> GetAllAsync<T>(Func<IQueryable<T>, IQueryable<T>>? include = null) where T : class
+    {
+        IQueryable<T> query = _context.Set<T>();
+
+        if (include != null) query = include(query);
+
+        return await query.ToListAsync();
     }
 
     public async Task AddAsync<TEntity>(TEntity entity) where TEntity : class

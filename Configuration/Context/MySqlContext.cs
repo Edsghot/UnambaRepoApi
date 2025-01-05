@@ -3,6 +3,8 @@ using UnambaRepoApi.Configuration.Context.EntityConfigurations;
 using UnambaRepoApi.Configuration.DataBase.EntityConfigurations;
 using UnambaRepoApi.Modules.Teacher.Domain.Entity;
 using UnambaRepoApi.Modules.User.Domain.Entity;
+using UnambaRepoApi.Modules.Teacher;
+using UnambaRepoApi.Modules.User;
 
 namespace UnambaRepoApi.Configuration.Context;
 
@@ -30,5 +32,8 @@ public class MySqlContext : DbContext
     {
         modelBuilder.ApplyConfiguration(new UserEntityConfiguration());
         modelBuilder.ApplyConfiguration(new TeacherEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new WorkExperienceEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new TeachingExperienceEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new ThesisAdvisingExperienceEntityConfiguration());
     }
 }

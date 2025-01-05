@@ -1,4 +1,6 @@
-﻿using UnambaRepoApi.Model.Dtos.Teacher;
+﻿using Mapster;
+using Microsoft.EntityFrameworkCore;
+using UnambaRepoApi.Model.Dtos.Teacher;
 using UnambaRepoApi.Modules.Teacher.Application.Port;
 using UnambaRepoApi.Modules.Teacher.Domain.Entity;
 using UnambaRepoApi.Modules.Teacher.Domain.IRepository;
@@ -16,31 +18,42 @@ public class TeacherAdapter : ITeacherInputPort
         _teacherOutPort = teacherOutPort;
     }
 
-    public async Task GetAllAsync()
+    public async Task GetById(int id)
     {
-        var teachers = await _teacherRepository.GetAllAsync<TeacherEntity>();
-
-        if (!teachers.Any())
+        var teachers = await _teacherRepository.GetAsync<TeacherEntity>(
+            x => x.IdTeacher == id,
+            query => query
+                .Include(t => t.TeachingExperiences)
+                .Include(t => t.WorkExperiences)
+                .Include(t => t.ThesisAdvisingExperiences).AsNoTracking()
+        );
+        if (teachers == null)
         {
             _teacherOutPort.NotFound("No teacher found.");
             return;
         }
 
-        var teacherDtos = teachers.Select(teacher => new TeacherDto
+        var teacherDtos = teachers.Adapt<TeacherDto>();
+        _teacherOutPort.GetById(teacherDtos);
+    }
+
+    public async Task GetAllAsync()
+    {
+        var teachers = await _teacherRepository.GetAllAsync<TeacherEntity>(
+            query => query
+                .Include(t => t.TeachingExperiences)
+                .Include(t => t.WorkExperiences)
+                .Include(t => t.ThesisAdvisingExperiences).AsNoTracking()
+        );
+
+        var teacherEntities = teachers.ToList();
+        if (!teacherEntities.Any())
         {
-            Id = teacher.Id,
-            FirstName = teacher.FirstName,
-            LastName = teacher.LastName,
-            Email = teacher.Email,
-            PhoneNumber = teacher.PhoneNumber,
-            Gender = teacher.Gender,
-            BirthDate = teacher.BirthDate,
-            RegistrationCode = teacher.RegistrationCode,
-            ProfileImage = teacher.ProfileImage,
-            Facebook = teacher.Facebook,
-            Instagram = teacher.Instagram,
-            LinkedIn = teacher.LinkedIn
-        });
+            _teacherOutPort.NotFound("No teacher found.");
+            return;
+        }
+
+        var teacherDtos = teachers.Adapt<List<TeacherDto>>();
 
         _teacherOutPort.GetAllAsync(teacherDtos);
     }

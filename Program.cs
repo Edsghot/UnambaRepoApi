@@ -9,6 +9,9 @@ using UnambaRepoApi.Modules.User.Application.Port;
 using UnambaRepoApi.Modules.User.Domain.IRepository;
 using UnambaRepoApi.Modules.User.Infraestructure.Presenter;
 using UnambaRepoApi.Modules.User.Infraestructure.Repository;
+using AutoMapper;
+using Mapster;
+using UnambaRepoApi.Mapping; // Asegúrate de incluir el espacio de nombres de AutoMapper
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +22,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<MySqlContext>();
+builder.Services.AddMapster();
+MappingConfig.RegisterMappings();
+
 builder.Services.AddScoped<IUserInputPort, UserAdapter>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserOutPort, UserPresenter>();

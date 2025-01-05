@@ -25,6 +25,15 @@ public class TeacherController : ControllerBase
         return Ok(response);
     }
 
+    [HttpGet("GetById/{id:int}")]
+    public async Task<IActionResult> GetById([FromRoute] int id)
+    {
+        await _teacherInputPort.GetById(id);
+        var response = _teacherOutPort.GetResponse;
+
+        return Ok(response);
+    }
+
     // GET api/<TeacherController>/5
     [HttpGet("{id}")]
     public string Get(int id)

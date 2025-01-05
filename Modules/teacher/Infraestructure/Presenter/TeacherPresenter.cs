@@ -10,4 +10,9 @@ public class TeacherPresenter : BasePresenter<object>, ITeacherOutPort
     {
         Success(data, "Teacher successfully retrieved.");
     }
+
+    public void GetById(TeacherDto data)
+    {
+        Success(data, "Teacher data");
+    }
 }

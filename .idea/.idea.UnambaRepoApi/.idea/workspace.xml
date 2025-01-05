@@ -10,46 +10,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e2577dc-0d5a-48b6-8574-a4052f0d118c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/BaseApiNet6.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/UnamaRepoApi.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BaseApiNet6.sln" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Configuration/Context/EntityConfigurations/UserEntityConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Configuration/Context/EntityConfigurations/UserEntityConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Configuration/Context/EntityConfigurations/TeachingExperienceEntityConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Configuration/Context/EntityConfigurations/ThesisAdvisingExperienceEntityConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Configuration/Context/EntityConfigurations/WorkExperienceEntityConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Mapping/MappingConfig.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/Dtos/Teacher/TeachingExperienceDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/Dtos/Teacher/ThesisAdvisingExperienceDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/Dtos/Teacher/WorkExperienceDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/teacher/Domain/Entity/TeachingExperienceEntity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/teacher/Domain/Entity/ThesisAdvisingExperienceEntity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/teacher/Domain/Entity/WorkExperienceEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.UnambaRepoApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnambaRepoApi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Configuration/Context/EntityConfigurations/TeacherEntityConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Configuration/Context/EntityConfigurations/TeacherEntityConfiguration.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Configuration/Context/MySqlContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Configuration/Context/MySqlContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Configuration/Context/Repository/BaseRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Configuration/Context/Repository/BaseRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Configuration/Context/Repository/IBaseRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Configuration/Context/Repository/IBaseRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Configuration/Shared/BasePresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Configuration/Shared/BasePresenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Configuration/Shared/IBasePresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Configuration/Shared/IBasePresenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/WeatherForecastController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/WeatherForecastController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20250102061658_init.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20250102061658_init.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20250102073930_teacherAdded.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20250102073930_teacherAdded.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Migrations/MySqlContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/Testimonials.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/Testimonials.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/init.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/init.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/teamAdded.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/teamAdded.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/userAddedn.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/userAddedn.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Dtos/CustomerT/CustomerTDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Dtos/CustomerT/CustomerTDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Dtos/EmployeeT/EmployeeTDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Dtos/EmployeeT/EmployeeTDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Dtos/Response/ResponseDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Dtos/Response/ResponseDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Dtos/Service/ServiceDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Dtos/Service/ServiceDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Dtos/User/UserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Dtos/User/UserDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/User/Application/Adapter/UserAdapter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/User/Application/Adapter/UserAdapter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/User/Application/Port/IUserInputPort.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/User/Application/Port/IUserInputPort.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/User/Application/Port/IUserOutPort.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/User/Application/Port/IUserOutPort.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/User/Domain/Entity/UserEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/User/Domain/Entity/UserEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/User/Domain/IRepository/IUserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/User/Domain/IRepository/IUserRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/User/Infraestructure/Controller/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/User/Infraestructure/Controller/UserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/User/Infraestructure/Presenter/UserPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/User/Infraestructure/Presenter/UserPresenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/User/Infraestructure/Repository/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/User/Infraestructure/Repository/UserRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/Dtos/Teacher/TeacherDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Dtos/Teacher/TeacherDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/teacher/Application/Adapter/TeacherAdapter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/teacher/Application/Adapter/TeacherAdapter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/teacher/Application/Port/ITeacherOutPort.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/teacher/Application/Port/ITeacherOutPort.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/teacher/Application/Port/IUserInputPort.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/teacher/Application/Port/IUserInputPort.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/teacher/Domain/Entity/TeacherEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/teacher/Domain/Entity/TeacherEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/teacher/Infraestructure/Controller/TeacherController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/teacher/Infraestructure/Controller/TeacherController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/teacher/Infraestructure/Presenter/TeacherPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/teacher/Infraestructure/Presenter/TeacherPresenter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WeatherForecast.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherForecast.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jhedgostBK.csproj.user" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jhedgostBK.sln.DotSettings.user" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnambaRepoApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/UnambaRepoApi.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="firstShow" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -64,9 +61,9 @@
       </map>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2r3mg0V8rAy8SSRgWE4J1dowyfp" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -77,9 +74,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Launch Settings Profile.UnamaRepoApi: IIS Express.executor": "Run",
+    ".NET Launch Settings Profile.UnamaRepoApi: IIS Express.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "ToolWindow.Database.ShowToolbar": "false",
     "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -87,8 +85,14 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "rider.code.cleanup.on.save": "true",
-    "settings.editor.selected.configurable": "actions.on.save",
+    "rider.code.cleanup.on.save.profile": "Built-in: Reformat & Apply Syntax Style",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.UnamaRepoApi: IIS Express">
@@ -147,6 +151,10 @@
       <option name="presentableId" value="Default" />
       <updated>1735796239953</updated>
       <workItem from="1735796242416" duration="3479000" />
+      <workItem from="1735800059398" duration="3896000" />
+      <workItem from="1736012856066" duration="1035000" />
+      <workItem from="1736014494034" duration="2412000" />
+      <workItem from="1736026052711" duration="15374000" />
     </task>
     <servers />
   </component>
@@ -156,6 +164,25 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Modules/teacher/Application/Adapter/TeacherAdapter.cs</url>
+          <line>40</line>
+          <properties documentPath="C:\Users\LUVI\source\repos\UnambaRepoApi\Modules\teacher\Application\Adapter\TeacherAdapter.cs" containingFunctionPresentation="Method 'GetAllAsync'">
+            <startOffsets>
+              <option value="1312" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1313" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

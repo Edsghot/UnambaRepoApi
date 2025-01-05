@@ -9,7 +9,7 @@ public class TeacherEntityConfiguration : IEntityTypeConfiguration<TeacherEntity
     public void Configure(EntityTypeBuilder<TeacherEntity> builder)
     {
         builder.ToTable("Teacher");
-        builder.HasKey(t => t.Id);
+        builder.HasKey(t => t.IdTeacher);
 
         builder.Property(t => t.FirstName)
             .HasMaxLength(100)
@@ -19,7 +19,7 @@ public class TeacherEntityConfiguration : IEntityTypeConfiguration<TeacherEntity
             .HasMaxLength(300)
             .IsRequired();
 
-        builder.Property(t => t.Email)
+        builder.Property(t => t.Mail)
             .HasMaxLength(100)
             .IsRequired();
 
@@ -27,12 +27,11 @@ public class TeacherEntityConfiguration : IEntityTypeConfiguration<TeacherEntity
             .HasMaxLength(100)
             .IsRequired();
 
-        builder.Property(t => t.PhoneNumber)
+        builder.Property(t => t.Phone)
             .HasMaxLength(100)
             .IsRequired();
 
         builder.Property(t => t.Gender)
-            .HasMaxLength(100)
             .IsRequired();
 
         builder.Property(t => t.BirthDate)
@@ -41,18 +40,37 @@ public class TeacherEntityConfiguration : IEntityTypeConfiguration<TeacherEntity
         builder.Property(t => t.RegistrationCode)
             .HasMaxLength(100)
             .IsRequired();
+
         builder.Property(t => t.Description)
             .HasMaxLength(900);
-        builder.Property(t => t.ProfileImage)
-            .HasMaxLength(500); // Opcional, no es requerido
+
+        builder.Property(t => t.Image)
+            .HasMaxLength(500);
 
         builder.Property(t => t.Facebook)
-            .HasMaxLength(200); // Opcional, no es requerido
+            .HasMaxLength(200);
 
         builder.Property(t => t.Instagram)
-            .HasMaxLength(200); // Opcional, no es requerido
+            .HasMaxLength(200);
 
         builder.Property(t => t.LinkedIn)
-            .HasMaxLength(200); // Opcional, no es requerido
+            .HasMaxLength(200);
+
+        builder.Property(t => t.Position);
+
+        builder.HasMany(t => t.WorkExperiences)
+            .WithOne(w => w.Teacher)
+            .HasForeignKey(w => w.TeacherId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasMany(t => t.TeachingExperiences)
+            .WithOne(te => te.Teacher)
+            .HasForeignKey(te => te.TeacherId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasMany(t => t.ThesisAdvisingExperiences)
+            .WithOne(tae => tae.Teacher)
+            .HasForeignKey(tae => tae.TeacherId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

@@ -6,4 +6,5 @@ namespace UnambaRepoApi.Modules.Teacher.Application.Port;
 public interface ITeacherInputPort
 {
     Task GetAllAsync();
+    Task GetById(int id);
 }
