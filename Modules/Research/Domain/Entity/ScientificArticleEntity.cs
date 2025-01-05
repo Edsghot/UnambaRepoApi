@@ -10,5 +10,6 @@ public record ScientificArticleEntity
     public string Doi { get; set; } = string.Empty;
     public string Authors { get; set; } = string.Empty;
     public string Pdf { get; set; } = string.Empty;
+    public int IdNivel { get; set; }
     public string Editor { get; set; } = string.Empty;
 }
