@@ -181,6 +181,12 @@ public class ResearchController : ControllerBase
                     Sucursal = "Av. La Marina 456, San Miguel, Lima",
                     FechaEmision = "2024-10-22",
                     FechaVencimiento = "2024-11-11",
+                    TotalGravadas = 4000.00m,
+                    TotalExoneradas = 0.00m,
+                    TotalOtrosTributos = 0.00m,
+                    TotalPercepcion = 0.00m,
+                    TotalIGV = 500.00m,
+                    TotalPagar = 4500.00m,
                     Scop = "123456789012", // Error
                     Compras = new[]
                     {
@@ -188,7 +194,7 @@ public class ResearchController : ControllerBase
                         {
                             codigo = "P004", cantidad = 10, descripcion = "Pan 1kg", precioUnitario = 5.00m,
                             total = 50.00m
-                        } 
+                        }
                     }
                 },
                 // Comprobante con 5 productos
