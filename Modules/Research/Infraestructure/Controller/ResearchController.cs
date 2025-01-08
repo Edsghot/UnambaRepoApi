@@ -127,7 +127,7 @@ public class ResearchController : ControllerBase
                     RazonSocial = "SUPERMERCADOS PERUANOS S.A.",
                     Sucursal = "",
                     FechaEmision = "2024-10-25",
-                    FechaVencimiento = "2024-11-10",
+                    FechaVencimiento = "2024-11-11",
                     Moneda = "S",
                     Condicion = "C",
                     Observacion = "Compra de víveres",
@@ -179,7 +179,8 @@ public class ResearchController : ControllerBase
                     TipoDocumento = 2,
                     RazonSocial = "PRIMAX S.A.",
                     Sucursal = "Av. La Marina 456, San Miguel, Lima",
-                    FechaEmision = "2024-10-24",
+                    FechaEmision = "2024-10-22",
+                    FechaVencimiento = "2024-11-11",
                     Scop = "123456789012", // Error
                     Compras = new[]
                     {
@@ -199,6 +200,8 @@ public class ResearchController : ControllerBase
                     NumCompra = "0002233446",
                     DocumentoProveedor = "20987654321",
                     TipoDocumento = 2,
+                    FechaEmision = "2024-10-19",
+                    FechaVencimiento = "2024-11-11",
                     RazonSocial = "MERCADO CENTRAL",
                     TotalGravadas = 5000.00m,
                     TotalExoneradas = 0.00m,
