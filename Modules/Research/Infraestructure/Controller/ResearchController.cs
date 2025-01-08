@@ -44,7 +44,7 @@ public class ResearchController : ControllerBase
             success = true,
             data = new[]
             {
-                // Comprobante correcto
+                // Comprobante correcto de combustible
                 new
                 {
                     NomTipoDocumento = "Factura Electronica",
@@ -115,85 +115,175 @@ public class ResearchController : ControllerBase
                     LicenciaTransportista = "L-12345678",
                     MarcaTransportista = "VOLVO"
                 },
-                // Comprobante con error: DocumentoProveedor demasiado largo
+                // Comprobante correcto de productos de mercado
                 new
                 {
                     NomTipoDocumento = "Factura Electronica",
                     AbrevTipoDocumento = "FA",
-                    SerieCompra = "F002",
-                    NumCompra = "0001234568",
-                    DocumentoProveedor = "205545457432055454574320554545743", // Error: demasiado largo
+                    SerieCompra = "M001",
+                    NumCompra = "0002233445",
+                    DocumentoProveedor = "20678945612",
                     TipoDocumento = 2,
-                    RazonSocial = "PETROPERU S.A.",
-                    Sucursal = "Av. Canaval y Moreyra 123, San Isidro, Lima",
-                    FechaEmision = "2024-10-24",
-                    FechaVencimiento = "2024-11-11",
-                    Moneda = "N",
-                    Condicion = "R",
-                    Observacion = "Compra de combustibles",
-                    Scop = "1234567890",
-                    TotalGravadas = 200000.00m,
+                    RazonSocial = "SUPERMERCADOS PERUANOS S.A.",
+                    Sucursal = null, // Sin sucursal
+                    FechaEmision = "2024-10-25",
+                    FechaVencimiento = "2024-11-10",
+                    Moneda = "S",
+                    Condicion = "C",
+                    Observacion = "Compra de víveres",
+                    Scop = null,
+                    TotalGravadas = 1200.00m,
                     TotalExoneradas = 0.00m,
                     TotalOtrosTributos = 0.00m,
                     TotalPercepcion = 0.00m,
-                    TotalIGV = 36000.00m,
-                    TotalPagar = 236000.00m,
+                    TotalIGV = 216.00m,
+                    TotalPagar = 1416.00m,
                     Compras = new[]
                     {
                         new
                         {
-                            codigo = "2001",
-                            serie = "SERIE003",
-                            Tieneserie = true,
-                            cantidad = 7000,
-                            descripcion = "Gasolina 98",
-                            API = 36.00m,
-                            temp = 20.0m,
-                            precioUnitario = 35.00m,
+                            codigo = "P001",
+                            serie = null,
+                            Tieneserie = false,
+                            cantidad = 10,
+                            descripcion = "Arroz 1kg",
+                            API = null,
+                            temp = null,
+                            precioUnitario = 2.50m,
                             Fise = 0.00m,
                             dscto = 0.00m,
                             ISC = 0.00m,
                             tieneIGV = 1,
-                            IGV = 6300.00m,
-                            Tratamiento = 10,
-                            subTotal = 200000.00m,
-                            total = 236000.00m
+                            IGV = 4.50m,
+                            Tratamiento = null,
+                            subTotal = 25.00m,
+                            total = 29.50m
                         },
                         new
                         {
-                            codigo = "2002",
-                            serie = "SERIE004",
-                            Tieneserie = true,
-                            cantidad = 4000,
-                            descripcion = "Diesel B5 S50",
-                            API = 33.00m,
-                            temp = 20.0m,
-                            precioUnitario = 28.00m,
+                            codigo = "P002",
+                            serie = null,
+                            Tieneserie = false,
+                            cantidad = 5,
+                            descripcion = "Aceite 1L",
+                            API = null,
+                            temp = null,
+                            precioUnitario = 10.00m,
                             Fise = 0.00m,
                             dscto = 0.00m,
                             ISC = 0.00m,
                             tieneIGV = 1,
-                            IGV = 5040.00m,
+                            IGV = 9.00m,
+                            Tratamiento = null,
+                            subTotal = 50.00m,
+                            total = 59.00m
+                        },
+                        new
+                        {
+                            codigo = "P003",
+                            serie = null,
+                            Tieneserie = false,
+                            cantidad = 12,
+                            descripcion = "Leche 1L",
+                            API = null,
+                            temp = null,
+                            precioUnitario = 3.50m,
+                            Fise = 0.00m,
+                            dscto = 0.00m,
+                            ISC = 0.00m,
+                            tieneIGV = 1,
+                            IGV = 7.56m,
+                            Tratamiento = null,
+                            subTotal = 42.00m,
+                            total = 49.56m
+                        }
+                    },
+                    TipoDocReferencia = null,
+                    CorrelativoReferencia = null,
+                    FechaEmisionReferencia = null,
+                    PlacaTransportista = null,
+                    LicenciaTransportista = null,
+                    MarcaTransportista = null
+                },
+                // Comprobante correcto adicional
+                new
+                {
+                    NomTipoDocumento = "Factura Electronica",
+                    AbrevTipoDocumento = "FA",
+                    SerieCompra = "F004",
+                    NumCompra = "0002233446",
+                    DocumentoProveedor = "20554548765",
+                    TipoDocumento = 2,
+                    RazonSocial = "CORPORACION PRIMAX S.A.",
+                    Sucursal = "Av. Los Olivos 345, Lima",
+                    FechaEmision = "2024-11-01",
+                    FechaVencimiento = "2024-11-30",
+                    Moneda = "S",
+                    Condicion = "R",
+                    Observacion = "Compra de combustibles y aceites",
+                    Scop = "9876543210",
+                    TotalGravadas = 250000.00m,
+                    TotalExoneradas = 0.00m,
+                    TotalOtrosTributos = 0.00m,
+                    TotalPercepcion = 0.00m,
+                    TotalIGV = 45000.00m,
+                    TotalPagar = 295000.00m,
+                    Compras = new[]
+                    {
+                        new
+                        {
+                            codigo = "4001",
+                            serie = "SERIE007",
+                            Tieneserie = true,
+                            cantidad = 8000,
+                            descripcion = "Gasohol 98",
+                            API = 37.00m,
+                            temp = 20.0m,
+                            precioUnitario = 32.00m,
+                            Fise = 0.00m,
+                            dscto = 0.00m,
+                            ISC = 0.00m,
+                            tieneIGV = 1,
+                            IGV = 7680.00m,
                             Tratamiento = 10,
-                            subTotal = 112000.00m,
-                            total = 131040.00m
+                            subTotal = 256000.00m,
+                            total = 295000.00m
+                        },
+                        new
+                        {
+                            codigo = "4002",
+                            serie = "SERIE008",
+                            Tieneserie = true,
+                            cantidad = 6000,
+                            descripcion = "Diesel B5 S50",
+                            API = 33.00m,
+                            temp = 20.0m,
+                            precioUnitario = 28.50m,
+                            Fise = 0.00m,
+                            dscto = 0.00m,
+                            ISC = 0.00m,
+                            tieneIGV = 1,
+                            IGV = 10260.00m,
+                            Tratamiento = 10,
+                            subTotal = 171000.00m,
+                            total = 201260.00m
                         }
                     },
                     TipoDocReferencia = "Guía de Remisión",
-                    CorrelativoReferencia = "GR-123457",
-                    FechaEmisionReferencia = "2024-10-22",
-                    PlacaTransportista = "DEF-456",
-                    LicenciaTransportista = "L-87654321",
-                    MarcaTransportista = "SCANIA"
+                    CorrelativoReferencia = "GR-223344",
+                    FechaEmisionReferencia = "2024-10-30",
+                    PlacaTransportista = "JKL-987",
+                    LicenciaTransportista = "L-45678912",
+                    MarcaTransportista = "VOLVO"
                 },
-                // Comprobante con error: Scop con longitud incorrecta
+                // Comprobante con errores adicionales
                 new
                 {
                     NomTipoDocumento = "Factura Electronica",
                     AbrevTipoDocumento = "FA",
                     SerieCompra = "F003",
                     NumCompra = "0001234569",
-                    DocumentoProveedor = "20554545743",
+                    DocumentoProveedor = "205545457432055454574320554545743", // Error: demasiado largo
                     TipoDocumento = 2,
                     RazonSocial = "PRIMAX S.A.",
                     Sucursal = "Av. La Marina 456, San Miguel, Lima",
@@ -259,6 +349,7 @@ public class ResearchController : ControllerBase
                 }
             }
         };
+
         return Ok(response);
     }
 
