@@ -42,7 +42,7 @@ public class ResearchController : ControllerBase
         {
             message = "ok",
             success = true,
-            data = new[]
+            data = new object[]
             {
                 // Comprobante correcto de combustible
                 new
@@ -125,13 +125,13 @@ public class ResearchController : ControllerBase
                     DocumentoProveedor = "20678945612",
                     TipoDocumento = 2,
                     RazonSocial = "SUPERMERCADOS PERUANOS S.A.",
-                    Sucursal = null,
+                    Sucursal = "",
                     FechaEmision = "2024-10-25",
                     FechaVencimiento = "2024-11-10",
                     Moneda = "S",
                     Condicion = "C",
                     Observacion = "Compra de víveres",
-                    Scop = null,
+                    Scop = "",
                     TotalGravadas = 1200.00m,
                     TotalExoneradas = 0.00m,
                     TotalOtrosTributos = 0.00m,
@@ -143,7 +143,7 @@ public class ResearchController : ControllerBase
                         new
                         {
                             codigo = "P001",
-                            serie = null,
+                            serie = "",
                             Tieneserie = false,
                             cantidad = 10,
                             descripcion = "Arroz 1kg",
@@ -156,7 +156,7 @@ public class ResearchController : ControllerBase
                         new
                         {
                             codigo = "P002",
-                            serie = null,
+                            serie = "",
                             Tieneserie = false,
                             cantidad = 5,
                             descripcion = "Aceite 1L",
@@ -181,7 +181,14 @@ public class ResearchController : ControllerBase
                     Sucursal = "Av. La Marina 456, San Miguel, Lima",
                     FechaEmision = "2024-10-24",
                     Scop = "123456789012", // Error
-                    Compras = new[] { }
+                    Compras = new[]
+                    {
+                        new
+                        {
+                            codigo = "P004", cantidad = 10, descripcion = "Pan 1kg", precioUnitario = 5.00m,
+                            total = 50.00m
+                        } 
+                    }
                 },
                 // Comprobante con 5 productos
                 new
