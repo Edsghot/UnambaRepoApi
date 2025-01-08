@@ -200,12 +200,12 @@ public class ResearchController : ControllerBase
                     DocumentoProveedor = "20987654321",
                     TipoDocumento = 2,
                     RazonSocial = "MERCADO CENTRAL",
-                    TotalGravadas = 1200.00m,
+                    TotalGravadas = 5000.00m,
                     TotalExoneradas = 0.00m,
                     TotalOtrosTributos = 0.00m,
                     TotalPercepcion = 0.00m,
-                    TotalIGV = 216.00m,
-                    TotalPagar = 1416.00m,
+                    TotalIGV = 600.00m,
+                    TotalPagar = 5600.00m,
                     Compras = new[]
                     {
                         new
