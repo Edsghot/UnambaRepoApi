@@ -10,23 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e2577dc-0d5a-48b6-8574-a4052f0d118c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Configuration/Context/EntityConfigurations/ValidateEntityConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/Dtos/Teacher/LoginDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/Dtos/Teacher/ValidateDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/teacher/Domain/Entity/ValidateEntity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/Dtos/Teacher/CreateTeacherDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnambaRepoApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnambaRepoApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Configuration/Context/EntityConfigurations/UserEntityConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Configuration/Context/EntityConfigurations/UserEntityConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Configuration/Context/MySqlContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Configuration/Context/MySqlContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Configuration/Shared/BasePresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Configuration/Shared/BasePresenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Configuration/Shared/IBasePresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Configuration/Shared/IBasePresenter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Migrations/MySqlContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/MySqlContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/User/Infraestructure/Repository/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/User/Infraestructure/Repository/UserRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/teacher/Application/Adapter/TeacherAdapter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/teacher/Application/Adapter/TeacherAdapter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/teacher/Application/Port/ITeacherInputPort.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/teacher/Application/Port/ITeacherInputPort.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/teacher/Application/Port/ITeacherOutPort.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/teacher/Application/Port/ITeacherOutPort.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/teacher/Domain/Entity/TeacherEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/teacher/Domain/Entity/TeacherEntity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/teacher/Infraestructure/Controller/TeacherController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/teacher/Infraestructure/Controller/TeacherController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/teacher/Infraestructure/Presenter/TeacherPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/teacher/Infraestructure/Presenter/TeacherPresenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnambaRepoApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/UnambaRepoApi.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +152,7 @@
       <workItem from="1736300316105" duration="2660000" />
       <workItem from="1736349798592" duration="389000" />
       <workItem from="1736390736935" duration="949000" />
-      <workItem from="1738431933072" duration="7895000" />
+      <workItem from="1738431933072" duration="9585000" />
     </task>
     <servers />
   </component>
@@ -188,19 +178,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Modules/teacher/Application/Adapter/TeacherAdapter.cs</url>
-          <line>138</line>
-          <properties documentPath="C:\Users\LUVI\source\repos\UnambaRepoApi\Modules\teacher\Application\Adapter\TeacherAdapter.cs" containingFunctionPresentation="Method 'ValidateCode'">
-            <startOffsets>
-              <option value="4491" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4492" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -11,4 +11,6 @@ public interface ITeacherInputPort
     Task Login(LoginDto loginRequest);
     Task SendVerificationEmailAsync(string toEmail);
     Task ValidateCode(string email, string inputCode);
+
+    Task CreateTeacherAsync(CreateTeacherDto teacherDto);
 }

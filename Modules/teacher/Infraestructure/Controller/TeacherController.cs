@@ -26,6 +26,15 @@ public class TeacherController : ControllerBase
         return Ok(response);
     }
 
+    [HttpPost("AddTeacher")]
+    public async Task<IActionResult> CreateTeacher([FromBody] CreateTeacherDto teacherDto)
+    {
+        await _teacherInputPort.CreateTeacherAsync(teacherDto);
+        var response = _teacherOutPort.GetResponse;
+
+        return Ok(response);
+    }
+
     [HttpGet("GetById/{id:int}")]
     public async Task<IActionResult> GetById([FromRoute] int id)
     {

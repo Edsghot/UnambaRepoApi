@@ -147,4 +147,39 @@ public class TeacherAdapter : ITeacherInputPort
 
         _teacherOutPort.Ok("El codigo es correcto");
     }
+
+    public async Task CreateTeacherAsync(CreateTeacherDto teacherDto)
+    {
+        var teacher = new TeacherEntity
+        {
+            FirstName = teacherDto.FirstName,
+            LastName = teacherDto.LastName,
+            Dni = teacherDto.Dni, // ✅ Agregado
+            School = teacherDto.School, // ✅ Agregado
+            Mail = teacherDto.Mail,
+            Password = teacherDto.Password,
+            RegistrationCode = teacherDto.RegistrationCode ?? string.Empty,
+            Image = teacherDto.Image,
+            Facebook = teacherDto.Facebook,
+            Description = teacherDto.Description ?? string.Empty,
+            LinkedIn = teacherDto.LinkedIn,
+            Orcid = teacherDto.Orcid, // ✅ Agregado
+            Scopus = teacherDto.Scopus, // ✅ Agregado
+            Concytec = teacherDto.Concytec, // ✅ Agregado
+
+            // Campos adicionales en el Entity que no vienen del DTO
+            Phone = string.Empty, // No viene del DTO, se deja vacío
+            Gender = false, // No viene del DTO, valor por defecto
+            BirthDate = DateTime.MinValue, // No viene del DTO, valor por defecto
+            Instagram = null, // No viene del DTO, se deja como null
+            Position = string.Empty, // No viene del DTO, se deja vacío
+            WorkExperiences = new List<WorkExperienceEntity>(), // Se inicializa vacío
+            TeachingExperiences = new List<TeachingExperienceEntity>(), // Se inicializa vacío
+            ThesisAdvisingExperiences = new List<ThesisAdvisingExperienceEntity>() // Se inicializa vacío
+        };
+
+        await _teacherRepository.AddAsync(teacher);
+
+        _teacherOutPort.Ok("Se creó correctamente el docente.");
+    }
 }
