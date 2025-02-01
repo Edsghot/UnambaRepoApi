@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using UnambaRepoApi.Configuration.Context.EntityConfigurations;
-using UnambaRepoApi.Configuration.DataBase.EntityConfigurations;
 using UnambaRepoApi.Modules.Teacher.Domain.Entity;
 using UnambaRepoApi.Modules.User.Domain.Entity;
 using UnambaRepoApi.Modules.Teacher;
@@ -37,5 +36,6 @@ public class MySqlContext : DbContext
         modelBuilder.ApplyConfiguration(new ThesisAdvisingExperienceEntityConfiguration());
         modelBuilder.ApplyConfiguration(new ScientificArticleEntityConfiguration());
         modelBuilder.ApplyConfiguration(new ResearchProjectEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new ValidateEntityConfiguration());
     }
 }

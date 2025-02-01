@@ -7,4 +7,5 @@ public interface ITeacherOutPort : IBasePresenter<object>
 {
     void GetAllAsync(IEnumerable<TeacherDto> data);
     void GetById(TeacherDto teacher);
+    void Login(TeacherDto data);
 }

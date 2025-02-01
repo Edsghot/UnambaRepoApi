@@ -11,4 +11,6 @@ public interface IBasePresenter<T>
     void NotFound(string message = "Data not found"); // Caso de no encontrado
 
     void Error(string message); // Caso de error
+
+    void Ok(string message); // Caso de error
 }

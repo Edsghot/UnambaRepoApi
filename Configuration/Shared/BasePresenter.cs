@@ -22,7 +22,7 @@ public class BasePresenter<T> : IBasePresenter<T>
         {
             Success = true,
             Message = message,
-            Data = default
+            Data = default!
         };
     }
 
@@ -32,7 +32,17 @@ public class BasePresenter<T> : IBasePresenter<T>
         {
             Success = false,
             Message = message,
-            Data = default
+            Data = default!
+        };
+    }
+
+    public void Ok(string message)
+    {
+        GetResponse = new ResponseDto<T>
+        {
+            Success = true,
+            Message = message,
+            Data = default!
         };
     }
 }

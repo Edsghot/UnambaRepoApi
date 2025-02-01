@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using UnambaRepoApi.Model.Dtos.Teacher;
 using UnambaRepoApi.Modules.Teacher.Application.Port;
 
 namespace UnambaRepoApi.Modules.Teacher.Infraestructure.Controller;
@@ -33,6 +34,33 @@ public class TeacherController : ControllerBase
 
         return Ok(response);
     }
+
+    [HttpPost("Login")]
+    public async Task<IActionResult> Login([FromBody] LoginDto loginRequest)
+    {
+        await _teacherInputPort.Login(loginRequest);
+        var response = _teacherOutPort.GetResponse;
+
+
+        return Ok(response);
+    }
+
+    [HttpPost("SendCodeValidation/{email}")]
+    public async Task<IActionResult> SendCodeValidation([FromRoute] string email)
+    {
+        await _teacherInputPort.SendVerificationEmailAsync(email);
+        var response = _teacherOutPort.GetResponse;
+        return Ok(response);
+    }
+
+    [HttpGet("ValidateMail")]
+    public async Task<IActionResult> ValidateEmail([FromQuery] ValidateDto data)
+    {
+        await _teacherInputPort.ValidateCode(data.Email, data.Code);
+        var response = _teacherOutPort.GetResponse;
+        return Ok(response);
+    }
+
 
     // GET api/<ResearchController>/5
     [HttpGet("{id}")]

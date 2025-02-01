@@ -15,4 +15,9 @@ public class TeacherPresenter : BasePresenter<object>, ITeacherOutPort
     {
         Success(data, "Teacher data");
     }
+
+    public void Login(TeacherDto data)
+    {
+        Success(data, "teacher data");
+    }
 }
