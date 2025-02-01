@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using UnambaRepoApi.Model.Dtos.Article;
+using UnambaRepoApi.Model.Dtos.project;
 using UnambaRepoApi.Modules.Research.Application.Port;
 using UnambaRepoApi.Modules.Teacher.Application.Port;
 
@@ -26,6 +28,43 @@ public class ResearchController : ControllerBase
         return Ok(response);
     }
 
+    [HttpGet("GetResearchProjectById/{id}")]
+    public async Task<IActionResult> GetResearchProjectById(int id)
+    {
+        await _researchInputPort.GetResearchProjectByIdAsync(id);
+        var response = _researchOutPort.GetResponse;
+
+        return Ok(response);
+    }
+
+    [HttpPost("CreateResearchProject")]
+    public async Task<IActionResult> CreateResearchProject([FromBody] CreateResearchProjectDto createDto)
+    {
+        await _researchInputPort.CreateResearchProjectAsync(createDto);
+        var response = _researchOutPort.GetResponse;
+
+        return Ok(response);
+    }
+
+    [HttpPut("UpdateResearchProject/{id}")]
+    public async Task<IActionResult> UpdateResearchProject(int id, [FromBody] CreateResearchProjectDto updateDto)
+    {
+        await _researchInputPort.UpdateResearchProjectAsync(id, updateDto);
+        var response = _researchOutPort.GetResponse;
+
+        return Ok(response);
+    }
+
+    [HttpDelete("DeleteResearchProject/{id}")]
+    public async Task<IActionResult> DeleteResearchProject(int id)
+    {
+        await _researchInputPort.DeleteResearchProjectAsync(id);
+        var response = _researchOutPort.GetResponse;
+
+        return Ok(response);
+    }
+    //+++++++++++++++++++++++++++++++++++++++++ ARTICLE
+
     [HttpGet("GetAllScientificArticle")]
     public async Task<IActionResult> GetAllScientificArticle()
     {
@@ -35,244 +74,40 @@ public class ResearchController : ControllerBase
         return Ok(response);
     }
 
-    [HttpGet("pecanoSrc")]
-    public IActionResult PecanoSrc()
+
+    [HttpGet("GetScientificArticleById/{id}")]
+    public async Task<IActionResult> GetScientificArticleById(int id)
     {
-        var response = new
-        {
-            message = "ok",
-            success = true,
-            data = new object[]
-            {
-                // Comprobante correcto de combustible
-                new
-                {
-                    NomTipoDocumento = "Factura Electronica",
-                    AbrevTipoDocumento = "FA",
-                    SerieCompra = "F001",
-                    NumCompra = "0001234567",
-                    DocumentoProveedor = "20554545743",
-                    TipoDocumento = 2,
-                    RazonSocial = "REPSOL COMERCIAL S.A.C.",
-                    Sucursal = "Av. Javier Prado Este 1234, San Isidro, Lima",
-                    FechaEmision = "2024-10-24",
-                    FechaVencimiento = "2024-11-11",
-                    Moneda = "N",
-                    Condicion = "R",
-                    Observacion = "Compra de combustibles",
-                    Scop = "1234567890",
-                    TotalGravadas = 150000.00m,
-                    TotalExoneradas = 0.00m,
-                    TotalOtrosTributos = 0.00m,
-                    TotalPercepcion = 0.00m,
-                    TotalIGV = 27000.00m,
-                    TotalPagar = 177000.00m,
-                    Compras = new[]
-                    {
-                        new
-                        {
-                            codigo = "1001",
-                            serie = "SERIE001",
-                            Tieneserie = true,
-                            cantidad = 5000,
-                            descripcion = "Gasolina 95",
-                            API = 35.00m,
-                            temp = 20.0m,
-                            precioUnitario = 30.00m,
-                            Fise = 0.00m,
-                            dscto = 0.00m,
-                            ISC = 0.00m,
-                            tieneIGV = 1,
-                            IGV = 5400.00m,
-                            Tratamiento = 10,
-                            subTotal = 150000.00m,
-                            total = 177000.00m
-                        },
-                        new
-                        {
-                            codigo = "1002",
-                            serie = "SERIE002",
-                            Tieneserie = true,
-                            cantidad = 3000,
-                            descripcion = "Diesel B5",
-                            API = 32.00m,
-                            temp = 20.0m,
-                            precioUnitario = 25.00m,
-                            Fise = 0.00m,
-                            dscto = 0.00m,
-                            ISC = 0.00m,
-                            tieneIGV = 1,
-                            IGV = 4500.00m,
-                            Tratamiento = 10,
-                            subTotal = 75000.00m,
-                            total = 88500.00m
-                        }
-                    },
-                    TipoDocReferencia = "Guía de Remisión",
-                    CorrelativoReferencia = "GR-123456",
-                    FechaEmisionReferencia = "2024-10-22",
-                    PlacaTransportista = "ABC-123",
-                    LicenciaTransportista = "L-12345678",
-                    MarcaTransportista = "VOLVO"
-                },
-                // Comprobante correcto de productos de mercado
-                new
-                {
-                    NomTipoDocumento = "Factura Electronica",
-                    AbrevTipoDocumento = "FA",
-                    SerieCompra = "M001",
-                    NumCompra = "0002233445",
-                    DocumentoProveedor = "20678945612",
-                    TipoDocumento = 2,
-                    RazonSocial = "SUPERMERCADOS PERUANOS S.A.",
-                    Sucursal = "",
-                    FechaEmision = "2024-10-25",
-                    FechaVencimiento = "2024-11-11",
-                    Moneda = "S",
-                    Condicion = "C",
-                    Observacion = "Compra de víveres",
-                    Scop = "",
-                    TotalGravadas = 1200.00m,
-                    TotalExoneradas = 0.00m,
-                    TotalOtrosTributos = 0.00m,
-                    TotalPercepcion = 0.00m,
-                    TotalIGV = 216.00m,
-                    TotalPagar = 1416.00m,
-                    Compras = new[]
-                    {
-                        new
-                        {
-                            codigo = "P001",
-                            serie = "",
-                            Tieneserie = false,
-                            cantidad = 10,
-                            descripcion = "Arroz 1kg",
-                            precioUnitario = 2.50m,
-                            tieneIGV = 1,
-                            IGV = 4.50m,
-                            subTotal = 25.00m,
-                            total = 29.50m
-                        },
-                        new
-                        {
-                            codigo = "P002",
-                            serie = "",
-                            Tieneserie = false,
-                            cantidad = 5,
-                            descripcion = "Aceite 1L",
-                            precioUnitario = 10.00m,
-                            tieneIGV = 1,
-                            IGV = 9.00m,
-                            subTotal = 50.00m,
-                            total = 59.00m
-                        }
-                    }
-                },
-                // Comprobante con errores
-                new
-                {
-                    NomTipoDocumento = "Factura Electronica",
-                    AbrevTipoDocumento = "FA",
-                    SerieCompra = "F003",
-                    NumCompra = "0001234569",
-                    DocumentoProveedor = "205545457432055454574320554545743", // Error
-                    TipoDocumento = 2,
-                    RazonSocial = "PRIMAX S.A.",
-                    Sucursal = "Av. La Marina 456, San Miguel, Lima",
-                    FechaEmision = "2024-10-22",
-                    FechaVencimiento = "2024-11-11",
-                    TotalGravadas = 4000.00m,
-                    TotalExoneradas = 0.00m,
-                    TotalOtrosTributos = 0.00m,
-                    TotalPercepcion = 0.00m,
-                    TotalIGV = 500.00m,
-                    TotalPagar = 4500.00m,
-                    Scop = "123456789012", // Error
-                    Compras = new[]
-                    {
-                        new
-                        {
-                            codigo = "P004", cantidad = 10, descripcion = "Pan 1kg", precioUnitario = 5.00m,
-                            total = 50.00m
-                        }
-                    }
-                },
-                // Comprobante con 5 productos
-                new
-                {
-                    NomTipoDocumento = "Factura Electronica",
-                    AbrevTipoDocumento = "FA",
-                    SerieCompra = "M002",
-                    NumCompra = "0002233446",
-                    DocumentoProveedor = "20987654321",
-                    TipoDocumento = 2,
-                    FechaEmision = "2024-10-19",
-                    FechaVencimiento = "2024-11-11",
-                    RazonSocial = "MERCADO CENTRAL",
-                    TotalGravadas = 5000.00m,
-                    TotalExoneradas = 0.00m,
-                    TotalOtrosTributos = 0.00m,
-                    TotalPercepcion = 0.00m,
-                    TotalIGV = 600.00m,
-                    TotalPagar = 5600.00m,
-                    Compras = new[]
-                    {
-                        new
-                        {
-                            codigo = "P004", cantidad = 10, descripcion = "Pan 1kg", precioUnitario = 5.00m,
-                            total = 50.00m
-                        },
-                        new
-                        {
-                            codigo = "P005", cantidad = 2, descripcion = "Pollo", precioUnitario = 12.00m,
-                            total = 24.00m
-                        },
-                        new
-                        {
-                            codigo = "P006", cantidad = 1, descripcion = "Carne 1kg", precioUnitario = 15.00m,
-                            total = 15.00m
-                        },
-                        new
-                        {
-                            codigo = "P007", cantidad = 3, descripcion = "Frutas variadas", precioUnitario = 8.00m,
-                            total = 24.00m
-                        },
-                        new
-                        {
-                            codigo = "P008", cantidad = 6, descripcion = "Bebidas gaseosas", precioUnitario = 6.00m,
-                            total = 36.00m
-                        }
-                    }
-                }
-            }
-        };
+        await _researchInputPort.GetScientificArticleByIdAsync(id);
+        var response = _researchOutPort.GetResponse;
 
         return Ok(response);
     }
 
-
-    // GET api/<ResearchController>/5
-    [HttpGet("{id}")]
-    public string Get(int id)
+    [HttpPost("CreateScientificArticle")]
+    public async Task<IActionResult> CreateScientificArticle([FromBody] CreateScientificArticleDto createDto)
     {
-        return "value";
+        await _researchInputPort.CreateScientificArticleAsync(createDto);
+        var response = _researchOutPort.GetResponse;
+
+        return Ok(response);
     }
 
-    // POST api/<ResearchController>
-    [HttpPost]
-    public void Post([FromBody] string value)
+    [HttpPut("UpdateScientificArticle/{id}")]
+    public async Task<IActionResult> UpdateScientificArticle(int id, [FromBody] CreateScientificArticleDto updateDto)
     {
+        await _researchInputPort.UpdateScientificArticleAsync(id, updateDto);
+        var response = _researchOutPort.GetResponse;
+
+        return Ok(response);
     }
 
-    // PUT api/<ResearchController>/5
-    [HttpPut("{id}")]
-    public void Put(int id, [FromBody] string value)
+    [HttpDelete("DeleteScientificArticle/{id}")]
+    public async Task<IActionResult> DeleteScientificArticle(int id)
     {
-    }
+        await _researchInputPort.DeleteScientificArticleAsync(id);
+        var response = _researchOutPort.GetResponse;
 
-    // DELETE api/<ResearchController>/5
-    [HttpDelete("{id}")]
-    public void Delete(int id)
-    {
+        return Ok(response);
     }
 }

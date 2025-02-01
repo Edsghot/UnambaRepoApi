@@ -73,7 +73,7 @@ public class TeacherAdapter : ITeacherInputPort
             x.Mail == loginRequest.Email && x.Password == loginRequest.Password);
         if (user == null)
         {
-            _teacherOutPort.NotFound("Esta mal tus credenciales");
+            _teacherOutPort.Error("Esta mal tus credenciales");
             return;
         }
 
