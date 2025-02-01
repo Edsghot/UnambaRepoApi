@@ -83,10 +83,10 @@ public class TeacherAdapter : ITeacherInputPort
     }
 
 
-    public static string GenerateCode()
+    private static string GenerateCode()
     {
         var random = new Random();
-        return random.Next(100000, 999999).ToString();
+        return random.Next(1000, 9999).ToString();
     }
 
     public async Task SendVerificationEmailAsync(string toEmail)
