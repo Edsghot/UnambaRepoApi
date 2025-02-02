@@ -20,7 +20,7 @@ public class ResearchAdapter : IResearchInputPort
 {
     private readonly IResearchOutPort _researchOutPort;
     private readonly IResearchRepository _researchRepository;
-    
+
     private readonly DateTime _peruDateTime;
     private readonly Cloudinary _cloudinary;
 
@@ -48,7 +48,6 @@ public class ResearchAdapter : IResearchInputPort
             Editor = createDto.Editor,
             Summary = createDto.Summary,
             Year = createDto.Year
-            
         };
         await _researchRepository.AddAsync(project);
         _researchOutPort.Ok("Proyecto de investigación creado exitosamente.");
@@ -73,14 +72,10 @@ public class ResearchAdapter : IResearchInputPort
         researchProject.Summary = updateDto.Summary;
         researchProject.Year = updateDto.Year;
 
-        if (updateDto.File != null)
-        {
-            researchProject.Pdf = await UploadPdf(updateDto.File, "research");
-        }
+        if (updateDto.File != null) researchProject.Pdf = await UploadPdf(updateDto.File, "research");
 
         await _researchRepository.UpdateAsync(researchProject);
         _researchOutPort.Ok("Proyecto de investigación actualizado exitosamente.");
-
     }
 
     public async Task DeleteResearchProjectAsync(int id)
@@ -166,7 +161,7 @@ public class ResearchAdapter : IResearchInputPort
 
     public async Task UpdateScientificArticleAsync(CreateScientificArticleDto updateDto)
     {
-        var article = await _researchRepository.GetAsync<ScientificArticleEntity>(x => x.Id == updateDto.IdArticle);
+        var article = await _researchRepository.GetAsync<ScientificArticleEntity>(x => x.Id == updateDto.Id);
         if (article == null)
         {
             _researchOutPort.NotFound("Artículo científico no encontrado.");

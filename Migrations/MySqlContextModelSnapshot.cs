@@ -48,7 +48,7 @@ namespace UnambaRepoApi.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("varchar(255)");
 
-                    b.Property<int>("IdTeacher")
+                    b.Property<int>("Id")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -107,7 +107,7 @@ namespace UnambaRepoApi.Migrations
                     b.Property<int>("IdNivel")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdTeacher")
+                    b.Property<int>("Id")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -132,7 +132,7 @@ namespace UnambaRepoApi.Migrations
 
             modelBuilder.Entity("UnambaRepoApi.Modules.Teacher.Domain.Entity.TeacherEntity", b =>
                 {
-                    b.Property<int>("IdTeacher")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -213,7 +213,7 @@ namespace UnambaRepoApi.Migrations
                     b.Property<string>("Scopus")
                         .HasColumnType("longtext");
 
-                    b.HasKey("IdTeacher");
+                    b.HasKey("Id");
 
                     b.ToTable("Teacher", (string)null);
                 });

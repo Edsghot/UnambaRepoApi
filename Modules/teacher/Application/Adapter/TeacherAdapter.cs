@@ -38,7 +38,7 @@ public class TeacherAdapter : ITeacherInputPort
     public async Task GetById(int id)
     {
         var teachers = await _teacherRepository.GetAsync<TeacherEntity>(
-            x => x.IdTeacher == id,
+            x => x.Id == id,
             query => query
                 .Include(t => t.TeachingExperiences)
                 .Include(t => t.WorkExperiences)

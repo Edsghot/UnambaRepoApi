@@ -2,7 +2,7 @@
 
 public record ScientificArticleDto
 {
-    public int IdArticle { get; set; }
+    public int Id { get; set; }
     public int IdTeacher { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }

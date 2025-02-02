@@ -9,14 +9,14 @@ namespace UnambaRepoApi.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<int>(
-                name: "IdTeacher",
+                name: "Id",
                 table: "ScientificArticle",
                 type: "int",
                 nullable: false,
                 defaultValue: 0);
 
             migrationBuilder.AddColumn<int>(
-                name: "IdTeacher",
+                name: "Id",
                 table: "ResearchProject",
                 type: "int",
                 nullable: false,
@@ -26,11 +26,11 @@ namespace UnambaRepoApi.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "IdTeacher",
+                name: "Id",
                 table: "ScientificArticle");
 
             migrationBuilder.DropColumn(
-                name: "IdTeacher",
+                name: "Id",
                 table: "ResearchProject");
         }
     }

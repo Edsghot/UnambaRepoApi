@@ -9,7 +9,7 @@ public class TeacherEntityConfiguration : IEntityTypeConfiguration<TeacherEntity
     public void Configure(EntityTypeBuilder<TeacherEntity> builder)
     {
         builder.ToTable("Teacher");
-        builder.HasKey(t => t.IdTeacher);
+        builder.HasKey(t => t.Id);
 
         builder.Property(t => t.FirstName)
             .HasMaxLength(100)

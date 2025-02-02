@@ -2,7 +2,7 @@
 
 public record TeacherEntity
 {
-    public int IdTeacher { get; set; }
+    public int Id { get; set; }
     public string FirstName { get; set; } = string.Empty;
     public string LastName { get; set; } = string.Empty;
     public string Dni { get; set; } = string.Empty; // ✅ Agregado

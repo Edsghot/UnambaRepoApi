@@ -104,7 +104,7 @@ namespace UnambaRepoApi.Migrations
                         name: "FK_TeachingExperience_Teacher_TeacherId",
                         column: x => x.TeacherId,
                         principalTable: "Teacher",
-                        principalColumn: "IdTeacher",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
@@ -133,7 +133,7 @@ namespace UnambaRepoApi.Migrations
                         name: "FK_ThesisAdvisingExperience_Teacher_TeacherId",
                         column: x => x.TeacherId,
                         principalTable: "Teacher",
-                        principalColumn: "IdTeacher",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
@@ -164,7 +164,7 @@ namespace UnambaRepoApi.Migrations
                         name: "FK_WorkExperience_Teacher_TeacherId",
                         column: x => x.TeacherId,
                         principalTable: "Teacher",
-                        principalColumn: "IdTeacher",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
