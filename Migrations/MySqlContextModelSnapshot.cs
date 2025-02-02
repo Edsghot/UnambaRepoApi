@@ -48,7 +48,7 @@ namespace UnambaRepoApi.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("varchar(255)");
 
-                    b.Property<int>("Id")
+                    b.Property<int>("IdTeacher")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -107,7 +107,7 @@ namespace UnambaRepoApi.Migrations
                     b.Property<int>("IdNivel")
                         .HasColumnType("int");
 
-                    b.Property<int>("Id")
+                    b.Property<int>("IdTeacher")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")

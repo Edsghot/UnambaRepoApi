@@ -217,4 +217,22 @@ public class TeacherController : ControllerBase
 
         return Ok(response);
     }
+
+    [HttpGet("Dashboard/{id}")]
+    public async Task<IActionResult> Dashboard(int id)
+    {
+        await _teacherInputPort.GetTeacherStatsAsync(id);
+        var response = _teacherOutPort.GetResponse;
+
+        return Ok(response);
+    }
+
+    [HttpPut("UpdateTeacher")]
+    public async Task<IActionResult> UpdateTeacher([FromForm] UpdateTeacherDto data)
+    {
+        await _teacherInputPort.UpdateTeacherAsync(data);
+        var response = _teacherOutPort.GetResponse;
+
+        return Ok(response);
+    }
 }

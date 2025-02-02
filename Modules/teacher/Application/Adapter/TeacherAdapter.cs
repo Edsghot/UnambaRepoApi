@@ -1,5 +1,7 @@
 ﻿using System.Net;
 using System.Net.Mail;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
 using Mapster;
 using Microsoft.EntityFrameworkCore;
 using UnambaRepoApi.Model.Dtos.Teacher;
@@ -28,11 +30,15 @@ public class TeacherAdapter : ITeacherInputPort
     private readonly string _smtpUser = "edsghotSolutions@gmail.com";
     private readonly string _smtpPass = "lfqpacmpmnvuwhvb";
 
+    private readonly Cloudinary _cloudinary;
+
 
     public TeacherAdapter(ITeacherRepository repository, ITeacherOutPort teacherOutPort)
     {
         _teacherRepository = repository;
         _teacherOutPort = teacherOutPort;
+        var account = new Account("dd0qlzyyk", "952839112726724", "7fxZGsz7Lz2vY5Ahp6spldgMTW4");
+        _cloudinary = new Cloudinary(account);
     }
 
     public async Task GetById(int id)
@@ -392,8 +398,71 @@ public class TeacherAdapter : ITeacherInputPort
         _teacherOutPort.Ok("Experiencia laboral eliminada exitosamente.");
     }
 
-    public async Task<List<StatDto>> GetTeacherStatsAsync(int teacherId)
+    public async Task UpdateTeacherAsync(UpdateTeacherDto updateDto)
     {
+        var teacher = await _teacherRepository.GetAsync<TeacherEntity>(x => x.Id == updateDto.Id);
+        if (teacher == null)
+        {
+            _teacherOutPort.NotFound("Docente no encontrado.");
+            return;
+        }
+
+        teacher.FirstName = updateDto.FirstName;
+        teacher.LastName = updateDto.LastName;
+        teacher.Dni = updateDto.Dni;
+        teacher.School = updateDto.School;
+        teacher.Mail = updateDto.Mail;
+        teacher.Phone = updateDto.Phone;
+        teacher.Password = updateDto.Password;
+        teacher.Gender = updateDto.Gender;
+        teacher.BirthDate = updateDto.BirthDate;
+        teacher.RegistrationCode = updateDto.RegistrationCode;
+        teacher.Facebook = updateDto.Facebook;
+        teacher.Description = updateDto.Description;
+        teacher.Instagram = updateDto.Instagram;
+        teacher.LinkedIn = updateDto.LinkedIn;
+        teacher.Orcid = updateDto.Orcid;
+        teacher.Scopus = updateDto.Scopus;
+        teacher.Concytec = updateDto.Concytec;
+        teacher.Position = updateDto.Position;
+
+        if (updateDto.Image != null) teacher.Image = await UploadImage(updateDto.Image, "teacher");
+
+        await _teacherRepository.UpdateAsync(teacher);
+        _teacherOutPort.Ok("Docente actualizado exitosamente.");
+    }
+
+    private async Task<string> UploadImage(IFormFile file, string folder)
+    {
+        await using var streamCover = file.OpenReadStream();
+        var uploadParamsCover = new ImageUploadParams
+        {
+            File = new FileDescription(file.FileName, streamCover),
+            Transformation = new Transformation().Width(500).Height(500).Crop("fill"),
+            Folder = folder
+        };
+
+        var uploadResult = await _cloudinary.UploadAsync(uploadParamsCover);
+
+        if (uploadResult.StatusCode == HttpStatusCode.OK) return uploadResult.Url.AbsoluteUri;
+        return "";
+    }
+
+    public async Task<ReportDataDto> GetTeacherStatsAsync(int teacherId)
+    {
+        var teacher = await _teacherRepository.GetAsync<TeacherEntity>(x => x.Id == teacherId);
+        if (teacher == null)
+        {
+            _teacherOutPort.NotFound("Docente no encontrado.");
+            return null;
+        }
+
+        var user = new UserDto
+        {
+            Name = teacher.FirstName + " " + teacher.LastName,
+            ProfileImage = teacher.Image
+        };
+
         var projects =
             await _teacherRepository.GetAllAsync<ResearchProjectEntity>(x => x.Where(x => x.IdTeacher == teacherId));
         var articles =
@@ -413,7 +482,47 @@ public class TeacherAdapter : ITeacherInputPort
             }
         };
 
-        return stats;
+        var projectData = new int[12];
+        var articleData = new int[12];
+
+        foreach (var project in projects) projectData[project.Date.Month - 1]++;
+
+        foreach (var article in articles) articleData[article.Date.Month - 1]++;
+
+        var grafico = new GraficoDto
+        {
+            Series = new List<SeriesDto>
+            {
+                new()
+                {
+                    Name = "Proyectos",
+                    Data = projectData.ToList()
+                },
+                new()
+                {
+                    Name = "Artículos",
+                    Data = articleData.ToList()
+                }
+            }
+        };
+
+        var tabla = new List<TablaDto>();
+
+        var latestProjects = projects.OrderByDescending(p => p.Date).Take(2);
+        var latestArticles = articles.OrderByDescending(a => a.Date).Take(2);
+
+        tabla.AddRange(latestProjects.Select(p => new TablaDto
+            { Name = p.Name, Date = p.Date.ToString("dd/MM/yyyy") }));
+        tabla.AddRange(latestArticles.Select(a => new TablaDto
+            { Name = a.Name, Date = a.Date.ToString("dd/MM/yyyy") }));
+
+        return new ReportDataDto
+        {
+            User = user,
+            Stats = stats,
+            Grafico = grafico,
+            Tabla = tabla
+        };
     }
 
     #endregion

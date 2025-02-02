@@ -32,7 +32,6 @@ public class ResearchAdapter : IResearchInputPort
         _peruDateTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, peruTimeZone);
         var account = new Account("dd0qlzyyk", "952839112726724", "7fxZGsz7Lz2vY5Ahp6spldgMTW4");
         _cloudinary = new Cloudinary(account);
-        
     }
 
     public async Task CreateResearchProjectAsync(CreateResearchProjectDto createDto)
@@ -202,6 +201,7 @@ public class ResearchAdapter : IResearchInputPort
         _researchOutPort.Success(researchProjectDtos, "data");
     }
 
+
     public async Task GetScientificArticlesByTeacherIdAsync(int teacherId)
     {
         var articles =
@@ -231,10 +231,7 @@ public class ResearchAdapter : IResearchInputPort
 
             var uploadResult = await _cloudinary.UploadAsync(uploadParams);
 
-            if (uploadResult.StatusCode == System.Net.HttpStatusCode.OK)
-            {
-                return uploadResult.Url.AbsoluteUri;
-            }
+            if (uploadResult.StatusCode == System.Net.HttpStatusCode.OK) return uploadResult.Url.AbsoluteUri;
             return "";
         }
         catch (Exception ex)

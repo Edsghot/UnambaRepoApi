@@ -11,8 +11,8 @@ using UnambaRepoApi.Configuration.Context;
 namespace UnambaRepoApi.Migrations
 {
     [DbContext(typeof(MySqlContext))]
-    [Migration("20250201223534_later6")]
-    partial class later6
+    [Migration("20250202211337_later1")]
+    partial class later1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,6 +50,9 @@ namespace UnambaRepoApi.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("varchar(255)");
 
+                    b.Property<int>("IdTeacher")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(255)
@@ -64,6 +67,10 @@ namespace UnambaRepoApi.Migrations
                         .IsRequired()
                         .HasMaxLength(2000)
                         .HasColumnType("varchar(2000)");
+
+                    b.Property<string>("Year")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -102,6 +109,9 @@ namespace UnambaRepoApi.Migrations
                     b.Property<int>("IdNivel")
                         .HasColumnType("int");
 
+                    b.Property<int>("IdTeacher")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(255)
@@ -124,7 +134,7 @@ namespace UnambaRepoApi.Migrations
 
             modelBuilder.Entity("UnambaRepoApi.Modules.Teacher.Domain.Entity.TeacherEntity", b =>
                 {
-                    b.Property<int>("IdTeacher")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -205,7 +215,7 @@ namespace UnambaRepoApi.Migrations
                     b.Property<string>("Scopus")
                         .HasColumnType("longtext");
 
-                    b.HasKey("IdTeacher");
+                    b.HasKey("Id");
 
                     b.ToTable("Teacher", (string)null);
                 });

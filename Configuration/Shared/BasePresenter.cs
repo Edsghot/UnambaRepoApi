@@ -20,7 +20,7 @@ public class BasePresenter<T> : IBasePresenter<T>
     {
         GetResponse = new ResponseDto<T>
         {
-            Success = false,
+            Success = true,
             Message = message,
             Data = default!
         };
