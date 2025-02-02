@@ -10,9 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e2577dc-0d5a-48b6-8574-a4052f0d118c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Model/Dtos/Teacher/DashboardDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnambaRepoApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnambaRepoApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/teacher/Application/Adapter/TeacherAdapter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/teacher/Application/Adapter/TeacherAdapter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Research/Application/Adapter/ResearchAdapter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Research/Application/Adapter/ResearchAdapter.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,18 +24,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Edsghot"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Edsghot&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Edsghot/UnambaRepoApi.git",
-    "accountId": "c5ffa90d-1fd1-4c9d-a348-2e44153ed011"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Edsghot/UnambaRepoApi.git&quot;,
+    &quot;accountId&quot;: &quot;c5ffa90d-1fd1-4c9d-a348-2e44153ed011&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Configuration/Context/MySqlContext.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -58,29 +57,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.UnamaRepoApi: IIS Express.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "ToolWindow.Database.ShowToolbar": "false",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "rider.code.cleanup.on.save": "true",
-    "rider.code.cleanup.on.save.profile": "Built-in: Reformat & Apply Syntax Style",
-    "settings.editor.selected.configurable": "CodeLensConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.UnamaRepoApi: IIS Express.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;ToolWindow.Database.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;rider.code.cleanup.on.save&quot;: &quot;true&quot;,
+    &quot;rider.code.cleanup.on.save.profile&quot;: &quot;Built-in: Reformat &amp; Apply Syntax Style&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;CodeLensConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.UnamaRepoApi: IIS Express">
     <configuration name="UnamaRepoApi: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/UnambaRepoApi.csproj" />
@@ -149,6 +148,7 @@
       <workItem from="1736349798592" duration="389000" />
       <workItem from="1736390736935" duration="949000" />
       <workItem from="1738431933072" duration="26630000" />
+      <workItem from="1738516439464" duration="7453000" />
     </task>
     <servers />
   </component>
@@ -167,13 +167,39 @@
           <line>57</line>
           <properties documentPath="C:\Users\LUVI\source\repos\UnambaRepoApi\Modules\teacher\Application\Adapter\TeacherAdapter.cs" containingFunctionPresentation="Method 'GetAllAsync'">
             <startOffsets>
-              <option value="2145" />
+              <option value="2138" />
             </startOffsets>
             <endOffsets>
-              <option value="2146" />
+              <option value="2139" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Modules/Research/Application/Adapter/ResearchAdapter.cs</url>
+          <line>38</line>
+          <properties documentPath="C:\Users\LUVI\source\repos\UnambaRepoApi\Modules\Research\Application\Adapter\ResearchAdapter.cs" containingFunctionPresentation="Method 'CreateResearchProjectAsync'">
+            <startOffsets>
+              <option value="1604" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1605" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Modules/Research/Application/Adapter/ResearchAdapter.cs</url>
+          <line>221</line>
+          <properties documentPath="C:\Users\LUVI\source\repos\UnambaRepoApi\Modules\Research\Application\Adapter\ResearchAdapter.cs" containingFunctionPresentation="Method 'UploadPdf'">
+            <startOffsets>
+              <option value="8380" />
+            </startOffsets>
+            <endOffsets>
+              <option value="8381" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
