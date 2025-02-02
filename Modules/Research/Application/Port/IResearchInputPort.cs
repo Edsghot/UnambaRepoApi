@@ -10,12 +10,16 @@ public interface IResearchInputPort
     Task GetAllResearchProject();
     Task GetAllScientificArticle();
     Task CreateResearchProjectAsync(CreateResearchProjectDto createDto);
-    Task UpdateResearchProjectAsync(int id, CreateResearchProjectDto updateDto);
+    Task UpdateResearchProjectAsync(CreateResearchProjectDto updateDto);
     Task DeleteResearchProjectAsync(int id);
     Task GetResearchProjectByIdAsync(int id);
+
     ///article
     Task GetScientificArticleByIdAsync(int id);
+
     Task CreateScientificArticleAsync(CreateScientificArticleDto createDto);
-    Task UpdateScientificArticleAsync(int id, CreateScientificArticleDto updateDto);
+    Task UpdateScientificArticleAsync(CreateScientificArticleDto updateDto);
     Task DeleteScientificArticleAsync(int id);
+    Task GetResearchProjectsByTeacherIdAsync(int teacherId);
+    Task GetScientificArticlesByTeacherIdAsync(int teacherId);
 }

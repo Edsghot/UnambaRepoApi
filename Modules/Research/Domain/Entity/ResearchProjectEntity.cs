@@ -11,4 +11,6 @@ public record ResearchProjectEntity
     public string Authors { get; set; }
     public string Pdf { get; set; }
     public string Editor { get; set; }
+
+    public int IdTeacher { get; set; }
 }

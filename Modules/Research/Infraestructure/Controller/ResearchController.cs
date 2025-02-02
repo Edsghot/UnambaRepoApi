@@ -46,10 +46,10 @@ public class ResearchController : ControllerBase
         return Ok(response);
     }
 
-    [HttpPut("UpdateResearchProject/{id}")]
-    public async Task<IActionResult> UpdateResearchProject(int id, [FromBody] CreateResearchProjectDto updateDto)
+    [HttpPut("UpdateResearchProject")]
+    public async Task<IActionResult> UpdateResearchProject([FromBody] CreateResearchProjectDto updateDto)
     {
-        await _researchInputPort.UpdateResearchProjectAsync(id, updateDto);
+        await _researchInputPort.UpdateResearchProjectAsync(updateDto);
         var response = _researchOutPort.GetResponse;
 
         return Ok(response);
@@ -93,10 +93,10 @@ public class ResearchController : ControllerBase
         return Ok(response);
     }
 
-    [HttpPut("UpdateScientificArticle/{id}")]
-    public async Task<IActionResult> UpdateScientificArticle(int id, [FromBody] CreateScientificArticleDto updateDto)
+    [HttpPut("UpdateScientificArticle")]
+    public async Task<IActionResult> UpdateScientificArticle([FromBody] CreateScientificArticleDto updateDto)
     {
-        await _researchInputPort.UpdateScientificArticleAsync(id, updateDto);
+        await _researchInputPort.UpdateScientificArticleAsync(updateDto);
         var response = _researchOutPort.GetResponse;
 
         return Ok(response);
@@ -106,6 +106,24 @@ public class ResearchController : ControllerBase
     public async Task<IActionResult> DeleteScientificArticle(int id)
     {
         await _researchInputPort.DeleteScientificArticleAsync(id);
+        var response = _researchOutPort.GetResponse;
+
+        return Ok(response);
+    }
+
+    [HttpGet("GetResearchProjectsByTeacherId/{teacherId}")]
+    public async Task<IActionResult> GetResearchProjectsByTeacherId(int teacherId)
+    {
+        await _researchInputPort.GetResearchProjectsByTeacherIdAsync(teacherId);
+        var response = _researchOutPort.GetResponse;
+
+        return Ok(response);
+    }
+
+    [HttpGet("GetScientificArticlesByTeacherId/{teacherId}")]
+    public async Task<IActionResult> GetScientificArticlesByTeacherId(int teacherId)
+    {
+        await _researchInputPort.GetScientificArticlesByTeacherIdAsync(teacherId);
         var response = _researchOutPort.GetResponse;
 
         return Ok(response);

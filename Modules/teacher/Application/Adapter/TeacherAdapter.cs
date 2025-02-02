@@ -8,7 +8,13 @@ using UnambaRepoApi.Modules.Teacher.Domain.Entity;
 using UnambaRepoApi.Modules.Teacher.Domain.IRepository;
 using MailKit.Net.Smtp;
 using MimeKit;
+using UnambaRepoApi.Model.Dtos.TeachingExperienceDto;
+using UnambaRepoApi.Model.Dtos.ThesisAdvisingExperience;
+using UnambaRepoApi.Model.Dtos.WorkExperience;
 using SmtpClient = MailKit.Net.Smtp.SmtpClient;
+using TeachingExperienceDto = UnambaRepoApi.Model.Dtos.Teacher.TeachingExperienceDto;
+using ThesisAdvisingExperienceDto = UnambaRepoApi.Model.Dtos.Teacher.ThesisAdvisingExperienceDto;
+using WorkExperienceDto = UnambaRepoApi.Model.Dtos.Teacher.WorkExperienceDto;
 
 namespace UnambaRepoApi.Modules.Teacher.Application.Adapter;
 
@@ -182,4 +188,208 @@ public class TeacherAdapter : ITeacherInputPort
 
         _teacherOutPort.Ok("Se creó correctamente el docente.");
     }
+
+    /// <summary>
+    /// //////////////////
+    /// </summary>
+    /// <param name="teacherId"></param>
+
+    #region Teaching Data
+
+    public async Task GetAllTeachingExperiencesByTeacherIdAsync(int teacherId)
+    {
+        var experiences =
+            await _teacherRepository.GetAllAsync<TeachingExperienceEntity>(x => x.Where(x => x.TeacherId == teacherId));
+        var experienceEntities = experiences.ToList();
+        if (!experienceEntities.Any())
+        {
+            _teacherOutPort.NotFound("No se encontraron experiencias de enseñanza para el docente.");
+            return;
+        }
+
+        var experienceDtos = experienceEntities.Adapt<List<TeachingExperienceDto>>();
+        _teacherOutPort.Success(experienceDtos, "data");
+    }
+
+    public async Task GetTeachingExperienceByIdAsync(int id)
+    {
+        var experience = await _teacherRepository.GetAsync<TeachingExperienceEntity>(x => x.Id == id);
+        if (experience == null)
+        {
+            _teacherOutPort.NotFound("Experiencia de enseñanza no encontrada.");
+            return;
+        }
+
+        var experienceDto = experience.Adapt<TeachingExperienceDto>();
+        _teacherOutPort.Success(experienceDto, "data");
+    }
+
+    public async Task CreateTeachingExperienceAsync(CreateTeachingExperienceDto createDto)
+    {
+        var experience = createDto.Adapt<TeachingExperienceEntity>();
+        await _teacherRepository.AddAsync(experience);
+        _teacherOutPort.Ok("Experiencia de enseñanza creada exitosamente.");
+    }
+
+    public async Task UpdateTeachingExperienceAsync(TeachingExperienceDto updateDto)
+    {
+        var experience = await _teacherRepository.GetAsync<TeachingExperienceEntity>(x => x.Id == updateDto.Id);
+        if (experience == null)
+        {
+            _teacherOutPort.NotFound("Experiencia de enseñanza no encontrada.");
+            return;
+        }
+
+        experience = updateDto.Adapt(experience);
+        await _teacherRepository.UpdateAsync(experience);
+        _teacherOutPort.Ok("Experiencia de enseñanza actualizada exitosamente.");
+    }
+
+    public async Task DeleteTeachingExperienceAsync(int id)
+    {
+        var experience = await _teacherRepository.GetAsync<TeachingExperienceEntity>(x => x.Id == id);
+        if (experience == null)
+        {
+            _teacherOutPort.NotFound("Experiencia de enseñanza no encontrada.");
+            return;
+        }
+
+        await _teacherRepository.DeleteAsync(experience);
+        _teacherOutPort.Ok("Experiencia de enseñanza eliminada exitosamente.");
+    }
+
+    #endregion
+
+    #region Teaching Advising data
+
+    public async Task GetAllThesisAdvisingExperiencesByTeacherIdAsync(int teacherId)
+    {
+        var experiences =
+            await _teacherRepository.GetAllAsync<ThesisAdvisingExperienceEntity>(x =>
+                x.Where(x => x.TeacherId == teacherId));
+        var experienceEntities = experiences.ToList();
+        if (!experienceEntities.Any())
+        {
+            _teacherOutPort.NotFound("No se encontraron experiencias de asesoría de tesis para el docente.");
+            return;
+        }
+
+        var experienceDtos = experienceEntities.Adapt<List<ThesisAdvisingExperienceDto>>();
+        _teacherOutPort.Success(experienceDtos, "data");
+    }
+
+    public async Task GetThesisAdvisingExperienceByIdAsync(int id)
+    {
+        var experience = await _teacherRepository.GetAsync<ThesisAdvisingExperienceEntity>(x => x.Id == id);
+        if (experience == null)
+        {
+            _teacherOutPort.NotFound("Experiencia de asesoría de tesis no encontrada.");
+            return;
+        }
+
+        var experienceDto = experience.Adapt<ThesisAdvisingExperienceDto>();
+        _teacherOutPort.Success(experienceDto, "data");
+    }
+
+    public async Task CreateThesisAdvisingExperienceAsync(CreateThesisAdvisingExperienceDto createDto)
+    {
+        var experience = createDto.Adapt<ThesisAdvisingExperienceEntity>();
+        await _teacherRepository.AddAsync(experience);
+        _teacherOutPort.Ok("Experiencia de asesoría de tesis creada exitosamente.");
+    }
+
+    public async Task UpdateThesisAdvisingExperienceAsync(ThesisAdvisingExperienceDto updateDto)
+    {
+        var experience = await _teacherRepository.GetAsync<ThesisAdvisingExperienceEntity>(x => x.Id == updateDto.Id);
+        if (experience == null)
+        {
+            _teacherOutPort.NotFound("Experiencia de asesoría de tesis no encontrada.");
+            return;
+        }
+
+        experience = updateDto.Adapt(experience);
+        await _teacherRepository.UpdateAsync(experience);
+        _teacherOutPort.Ok("Experiencia de asesoría de tesis actualizada exitosamente.");
+    }
+
+    public async Task DeleteThesisAdvisingExperienceAsync(int id)
+    {
+        var experience = await _teacherRepository.GetAsync<ThesisAdvisingExperienceEntity>(x => x.Id == id);
+        if (experience == null)
+        {
+            _teacherOutPort.NotFound("Experiencia de asesoría de tesis no encontrada.");
+            return;
+        }
+
+        await _teacherRepository.DeleteAsync(experience);
+        _teacherOutPort.Ok("Experiencia de asesoría de tesis eliminada exitosamente.");
+    }
+
+    #endregion
+
+    #region Work expericie
+
+    public async Task GetAllWorkExperiencesByTeacherIdAsync(int teacherId)
+    {
+        var experiences =
+            await _teacherRepository.GetAllAsync<WorkExperienceEntity>(x => x.Where(x => x.TeacherId == teacherId));
+        var experienceEntities = experiences.ToList();
+        if (!experienceEntities.Any())
+        {
+            _teacherOutPort.NotFound("No se encontraron experiencias laborales para el docente.");
+            return;
+        }
+
+        var experienceDtos = experienceEntities.Adapt<List<WorkExperienceDto>>();
+        _teacherOutPort.Success(experienceDtos, "data");
+    }
+
+    public async Task GetWorkExperienceByIdAsync(int id)
+    {
+        var experience = await _teacherRepository.GetAsync<WorkExperienceEntity>(x => x.Id == id);
+        if (experience == null)
+        {
+            _teacherOutPort.NotFound("Experiencia laboral no encontrada.");
+            return;
+        }
+
+        var experienceDto = experience.Adapt<WorkExperienceDto>();
+        _teacherOutPort.Success(experienceDto, "data");
+    }
+
+    public async Task CreateWorkExperienceAsync(CreateWorkExperienceDto createDto)
+    {
+        var experience = createDto.Adapt<WorkExperienceEntity>();
+        await _teacherRepository.AddAsync(experience);
+        _teacherOutPort.Ok("Experiencia laboral creada exitosamente.");
+    }
+
+    public async Task UpdateWorkExperienceAsync(WorkExperienceDto updateDto)
+    {
+        var experience = await _teacherRepository.GetAsync<WorkExperienceEntity>(x => x.Id == updateDto.Id);
+        if (experience == null)
+        {
+            _teacherOutPort.NotFound("Experiencia laboral no encontrada.");
+            return;
+        }
+
+        experience = updateDto.Adapt(experience);
+        await _teacherRepository.UpdateAsync(experience);
+        _teacherOutPort.Ok("Experiencia laboral actualizada exitosamente.");
+    }
+
+    public async Task DeleteWorkExperienceAsync(int id)
+    {
+        var experience = await _teacherRepository.GetAsync<WorkExperienceEntity>(x => x.Id == id);
+        if (experience == null)
+        {
+            _teacherOutPort.NotFound("Experiencia laboral no encontrada.");
+            return;
+        }
+
+        await _teacherRepository.DeleteAsync(experience);
+        _teacherOutPort.Ok("Experiencia laboral eliminada exitosamente.");
+    }
+
+    #endregion
 }

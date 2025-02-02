@@ -32,9 +32,10 @@ public class ResearchAdapter : IResearchInputPort
         _researchOutPort.Ok("Proyecto de investigación creado exitosamente.");
     }
 
-    public async Task UpdateResearchProjectAsync(int id, CreateResearchProjectDto updateDto)
+    public async Task UpdateResearchProjectAsync(CreateResearchProjectDto updateDto)
     {
-        var researchProject = await _researchRepository.GetAsync<ResearchProjectEntity>(x => x.Id == id);
+        var researchProject =
+            await _researchRepository.GetAsync<ResearchProjectEntity>(x => x.Id == updateDto.IdProject);
         if (researchProject == null)
         {
             _researchOutPort.NotFound("Proyecto de investigación no encontrado.");
@@ -106,7 +107,7 @@ public class ResearchAdapter : IResearchInputPort
 
         _researchOutPort.GetAllScientificArticle(researchDtos);
     }
-    
+
     public async Task GetScientificArticleByIdAsync(int id)
     {
         var article = await _researchRepository.GetAsync<ScientificArticleEntity>(x => x.Id == id);
@@ -127,9 +128,9 @@ public class ResearchAdapter : IResearchInputPort
         _researchOutPort.Ok("Artículo científico creado exitosamente.");
     }
 
-    public async Task UpdateScientificArticleAsync(int id, CreateScientificArticleDto updateDto)
+    public async Task UpdateScientificArticleAsync(CreateScientificArticleDto updateDto)
     {
-        var article = await _researchRepository.GetAsync<ScientificArticleEntity>(x => x.Id == id);
+        var article = await _researchRepository.GetAsync<ScientificArticleEntity>(x => x.Id == updateDto.IdArticle);
         if (article == null)
         {
             _researchOutPort.NotFound("Artículo científico no encontrado.");
@@ -153,5 +154,34 @@ public class ResearchAdapter : IResearchInputPort
         await _researchRepository.DeleteAsync(article);
         _researchOutPort.Ok("Artículo científico eliminado exitosamente.");
     }
-    
+
+    public async Task GetResearchProjectsByTeacherIdAsync(int teacherId)
+    {
+        var researchProjects =
+            await _researchRepository.GetAllAsync<ResearchProjectEntity>(x => x.Where(x => x.IdTeacher == teacherId));
+        var researchProjectEntities = researchProjects.ToList();
+        if (!researchProjectEntities.Any())
+        {
+            _researchOutPort.NotFound("No se encontraron proyectos de investigación para el docente.");
+            return;
+        }
+
+        var researchProjectDtos = researchProjectEntities.Adapt<List<ResearchProjectDto>>();
+        _researchOutPort.Success(researchProjectDtos, "data");
+    }
+
+    public async Task GetScientificArticlesByTeacherIdAsync(int teacherId)
+    {
+        var articles =
+            await _researchRepository.GetAllAsync<ScientificArticleEntity>(x => x.Where(x => x.IdTeacher == teacherId));
+        var articleEntities = articles.ToList();
+        if (!articleEntities.Any())
+        {
+            _researchOutPort.NotFound("No se encontraron artículos científicos para el docente.");
+            return;
+        }
+
+        var articleDtos = articleEntities.Adapt<List<ScientificArticleDto>>();
+        _researchOutPort.Success(articleDtos, "data");
+    }
 }

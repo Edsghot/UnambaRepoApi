@@ -1,6 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using UnambaRepoApi.Model.Dtos.Teacher;
+using UnambaRepoApi.Model.Dtos.TeachingExperienceDto;
+using UnambaRepoApi.Model.Dtos.ThesisAdvisingExperience;
+using UnambaRepoApi.Model.Dtos.WorkExperience;
 using UnambaRepoApi.Modules.Teacher.Application.Port;
+using TeachingExperienceDto = UnambaRepoApi.Model.Dtos.Teacher.TeachingExperienceDto;
+using ThesisAdvisingExperienceDto = UnambaRepoApi.Model.Dtos.Teacher.ThesisAdvisingExperienceDto;
+using WorkExperienceDto = UnambaRepoApi.Model.Dtos.Teacher.WorkExperienceDto;
 
 namespace UnambaRepoApi.Modules.Teacher.Infraestructure.Controller;
 
@@ -70,29 +76,145 @@ public class TeacherController : ControllerBase
         return Ok(response);
     }
 
-
-    // GET api/<ResearchController>/5
-    [HttpGet("{id}")]
-    public string Get(int id)
+    /// validar
+    [HttpGet("GetAllTeachingExperiencesByTeacherId/{teacherId}")]
+    public async Task<IActionResult> GetAllTeachingExperiencesByTeacherId(int teacherId)
     {
-        return "value";
+        await _teacherInputPort.GetAllTeachingExperiencesByTeacherIdAsync(teacherId);
+        var response = _teacherOutPort.GetResponse;
+
+        return Ok(response);
     }
 
-    // POST api/<ResearchController>
-    [HttpPost]
-    public void Post([FromBody] string value)
+    [HttpGet("GetTeachingExperienceById/{id}")]
+    public async Task<IActionResult> GetTeachingExperienceById(int id)
     {
+        await _teacherInputPort.GetTeachingExperienceByIdAsync(id);
+        var response = _teacherOutPort.GetResponse;
+
+        return Ok(response);
     }
 
-    // PUT api/<ResearchController>/5
-    [HttpPut("{id}")]
-    public void Put(int id, [FromBody] string value)
+    [HttpPost("CreateTeachingExperience")]
+    public async Task<IActionResult> CreateTeachingExperience([FromBody] CreateTeachingExperienceDto createDto)
     {
+        await _teacherInputPort.CreateTeachingExperienceAsync(createDto);
+        var response = _teacherOutPort.GetResponse;
+
+        return Ok(response);
     }
 
-    // DELETE api/<ResearchController>/5
-    [HttpDelete("{id}")]
-    public void Delete(int id)
+    [HttpPut("UpdateTeachingExperience")]
+    public async Task<IActionResult> UpdateTeachingExperience([FromBody] TeachingExperienceDto updateDto)
     {
+        await _teacherInputPort.UpdateTeachingExperienceAsync(updateDto);
+        var response = _teacherOutPort.GetResponse;
+
+        return Ok(response);
+    }
+
+    [HttpDelete("DeleteTeachingExperience/{id}")]
+    public async Task<IActionResult> DeleteTeachingExperience(int id)
+    {
+        await _teacherInputPort.DeleteTeachingExperienceAsync(id);
+        var response = _teacherOutPort.GetResponse;
+
+        return Ok(response);
+    }
+
+
+    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    [HttpGet("GetAllThesisAdvisingExperiencesByTeacherId/{teacherId}")]
+    public async Task<IActionResult> GetAllThesisAdvisingExperiencesByTeacherId(int teacherId)
+    {
+        await _teacherInputPort.GetAllThesisAdvisingExperiencesByTeacherIdAsync(teacherId);
+        var response = _teacherOutPort.GetResponse;
+
+        return Ok(response);
+    }
+
+    [HttpGet("GetThesisAdvisingExperienceById/{id}")]
+    public async Task<IActionResult> GetThesisAdvisingExperienceById(int id)
+    {
+        await _teacherInputPort.GetThesisAdvisingExperienceByIdAsync(id);
+        var response = _teacherOutPort.GetResponse;
+
+        return Ok(response);
+    }
+
+    [HttpPost("CreateThesisAdvisingExperience")]
+    public async Task<IActionResult> CreateThesisAdvisingExperience(
+        [FromBody] CreateThesisAdvisingExperienceDto createDto)
+    {
+        await _teacherInputPort.CreateThesisAdvisingExperienceAsync(createDto);
+        var response = _teacherOutPort.GetResponse;
+
+        return Ok(response);
+    }
+
+    [HttpPut("UpdateThesisAdvisingExperience")]
+    public async Task<IActionResult> UpdateThesisAdvisingExperience([FromBody] ThesisAdvisingExperienceDto updateDto)
+    {
+        await _teacherInputPort.UpdateThesisAdvisingExperienceAsync(updateDto);
+        var response = _teacherOutPort.GetResponse;
+
+        return Ok(response);
+    }
+
+    [HttpDelete("DeleteThesisAdvisingExperience/{id}")]
+    public async Task<IActionResult> DeleteThesisAdvisingExperience(int id)
+    {
+        await _teacherInputPort.DeleteThesisAdvisingExperienceAsync(id);
+        var response = _teacherOutPort.GetResponse;
+
+        return Ok(response);
+    }
+
+    //=========================================================
+
+    [HttpGet("GetAllWorkExperiencesByTeacherId/{teacherId}")]
+    public async Task<IActionResult> GetAllWorkExperiencesByTeacherId(int teacherId)
+    {
+        await _teacherInputPort.GetAllWorkExperiencesByTeacherIdAsync(teacherId);
+        var response = _teacherOutPort.GetResponse;
+
+        return Ok(response);
+    }
+
+    [HttpGet("GetWorkExperienceById/{id}")]
+    public async Task<IActionResult> GetWorkExperienceById(int id)
+    {
+        await _teacherInputPort.GetWorkExperienceByIdAsync(id);
+        var response = _teacherOutPort.GetResponse;
+
+        return Ok(response);
+    }
+
+    [HttpPost("CreateWorkExperience")]
+    public async Task<IActionResult> CreateWorkExperience([FromBody] CreateWorkExperienceDto createDto)
+    {
+        await _teacherInputPort.CreateWorkExperienceAsync(createDto);
+        var response = _teacherOutPort.GetResponse;
+
+        return Ok(response);
+    }
+
+    [HttpPut("UpdateWorkExperience")]
+    public async Task<IActionResult> UpdateWorkExperience([FromBody] WorkExperienceDto updateDto)
+    {
+        await _teacherInputPort.UpdateWorkExperienceAsync(updateDto);
+        var response = _teacherOutPort.GetResponse;
+
+        return Ok(response);
+    }
+
+    [HttpDelete("DeleteWorkExperience/{id}")]
+    public async Task<IActionResult> DeleteWorkExperience(int id)
+    {
+        await _teacherInputPort.DeleteWorkExperienceAsync(id);
+        var response = _teacherOutPort.GetResponse;
+
+        return Ok(response);
     }
 }
