@@ -9,29 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e2577dc-0d5a-48b6-8574-a4052f0d118c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Model/Dtos/Teacher/UpdateTeacherDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.UnambaRepoApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnambaRepoApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20250105024821_InitialCreate.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20250105024821_InitialCreate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20250105051157_research.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20250105051157_research.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20250105234607_researchIdNivel.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20250105234607_researchIdNivel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20250201220413_later5.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20250201220413_later5.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20250201223534_later6.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20250201223534_later6.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20250202005821_later7.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20250202005821_later7.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20250202191133_later8.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20250202191133_later8.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/MySqlContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Research/Application/Adapter/ResearchAdapter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Research/Application/Adapter/ResearchAdapter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/teacher/Application/Adapter/TeacherAdapter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/teacher/Application/Adapter/TeacherAdapter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/teacher/Application/Port/ITeacherInputPort.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/teacher/Application/Port/ITeacherInputPort.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/teacher/Infraestructure/Controller/TeacherController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/teacher/Infraestructure/Controller/TeacherController.cs" afterDir="false" />
-    </list>
+    <list default="true" id="5e2577dc-0d5a-48b6-8574-a4052f0d118c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -167,7 +145,7 @@
       <workItem from="1736349798592" duration="389000" />
       <workItem from="1736390736935" duration="949000" />
       <workItem from="1738431933072" duration="26630000" />
-      <workItem from="1738516439464" duration="10112000" />
+      <workItem from="1738516439464" duration="10325000" />
     </task>
     <servers />
   </component>
@@ -186,36 +164,23 @@
           <line>63</line>
           <properties documentPath="C:\Users\LUVI\source\repos\UnambaRepoApi\Modules\teacher\Application\Adapter\TeacherAdapter.cs" containingFunctionPresentation="Method 'GetAllAsync'">
             <startOffsets>
-              <option value="2389" />
+              <option value="2385" />
             </startOffsets>
             <endOffsets>
-              <option value="2390" />
+              <option value="2386" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Modules/Research/Application/Adapter/ResearchAdapter.cs</url>
-          <line>38</line>
-          <properties documentPath="C:\Users\LUVI\source\repos\UnambaRepoApi\Modules\Research\Application\Adapter\ResearchAdapter.cs" containingFunctionPresentation="Method 'CreateResearchProjectAsync'">
-            <startOffsets>
-              <option value="1604" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1605" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Modules/teacher/Application/Adapter/TeacherAdapter.cs</url>
-          <line>439</line>
+          <line>437</line>
           <properties documentPath="C:\Users\LUVI\source\repos\UnambaRepoApi\Modules\teacher\Application\Adapter\TeacherAdapter.cs" containingFunctionPresentation="Method 'UploadImage'">
             <startOffsets>
-              <option value="16281" />
+              <option value="16239" />
             </startOffsets>
             <endOffsets>
-              <option value="16530" />
+              <option value="16488" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />
