@@ -1,4 +1,6 @@
-﻿using Mapster;
+﻿using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
+using Mapster;
 using Microsoft.EntityFrameworkCore;
 using UnambaRepoApi.Model.Dtos.Article;
 using UnambaRepoApi.Model.Dtos.project;
@@ -18,33 +20,67 @@ public class ResearchAdapter : IResearchInputPort
 {
     private readonly IResearchOutPort _researchOutPort;
     private readonly IResearchRepository _researchRepository;
+    
+    private readonly DateTime _peruDateTime;
+    private readonly Cloudinary _cloudinary;
 
     public ResearchAdapter(IResearchRepository repository, IResearchOutPort outPort)
     {
         _researchRepository = repository;
         _researchOutPort = outPort;
+        var peruTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SA Pacific Standard Time");
+        _peruDateTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, peruTimeZone);
+        var account = new Account("dd0qlzyyk", "952839112726724", "7fxZGsz7Lz2vY5Ahp6spldgMTW4");
+        _cloudinary = new Cloudinary(account);
     }
 
     public async Task CreateResearchProjectAsync(CreateResearchProjectDto createDto)
     {
-        var researchProject = createDto.Adapt<ResearchProjectEntity>();
-        await _researchRepository.AddAsync(researchProject);
+        var project = new ResearchProjectEntity
+        {
+            Name = createDto.Title,
+            Description = createDto.Description,
+            IdTeacher = createDto.IdTeacher,
+            Pdf = await UploadPdf(createDto.File, "research"),
+            Authors = createDto.Authors,
+            Date = _peruDateTime,
+            Doi = createDto.Doi,
+            Editor = createDto.Editor,
+            Summary = createDto.Summary,
+            Year = createDto.Year
+            
+        };
+        await _researchRepository.AddAsync(project);
         _researchOutPort.Ok("Proyecto de investigación creado exitosamente.");
     }
 
     public async Task UpdateResearchProjectAsync(CreateResearchProjectDto updateDto)
     {
-        var researchProject =
-            await _researchRepository.GetAsync<ResearchProjectEntity>(x => x.Id == updateDto.IdProject);
+        var researchProject = await _researchRepository.GetAsync<ResearchProjectEntity>(x => x.Id == updateDto.Id);
         if (researchProject == null)
         {
             _researchOutPort.NotFound("Proyecto de investigación no encontrado.");
             return;
         }
 
-        researchProject = updateDto.Adapt(researchProject);
+        researchProject.Name = updateDto.Title;
+        researchProject.Description = updateDto.Description;
+        researchProject.IdTeacher = updateDto.IdTeacher;
+        researchProject.Authors = updateDto.Authors;
+        researchProject.Date = _peruDateTime;
+        researchProject.Doi = updateDto.Doi;
+        researchProject.Editor = updateDto.Editor;
+        researchProject.Summary = updateDto.Summary;
+        researchProject.Year = updateDto.Year;
+
+        if (updateDto.File != null)
+        {
+            researchProject.Pdf = await UploadPdf(updateDto.File, "research");
+        }
+
         await _researchRepository.UpdateAsync(researchProject);
         _researchOutPort.Ok("Proyecto de investigación actualizado exitosamente.");
+
     }
 
     public async Task DeleteResearchProjectAsync(int id)
@@ -183,5 +219,21 @@ public class ResearchAdapter : IResearchInputPort
 
         var articleDtos = articleEntities.Adapt<List<ScientificArticleDto>>();
         _researchOutPort.Success(articleDtos, "data");
+    }
+
+
+    private async Task<string> UploadPdf(IFormFile file, string folder)
+    {
+        await using var stream = file.OpenReadStream();
+        var uploadParams = new RawUploadParams
+        {
+            File = new FileDescription(file.FileName, stream),
+            Folder = folder
+        };
+
+        var uploadResult = await _cloudinary.UploadAsync(uploadParams);
+
+        if (uploadResult.StatusCode == System.Net.HttpStatusCode.OK) return uploadResult.Url.AbsoluteUri;
+        return "";
     }
 }

@@ -38,7 +38,7 @@ public class ResearchController : ControllerBase
     }
 
     [HttpPost("CreateResearchProject")]
-    public async Task<IActionResult> CreateResearchProject([FromBody] CreateResearchProjectDto createDto)
+    public async Task<IActionResult> CreateResearchProject([FromForm] CreateResearchProjectDto createDto)
     {
         await _researchInputPort.CreateResearchProjectAsync(createDto);
         var response = _researchOutPort.GetResponse;
@@ -47,7 +47,7 @@ public class ResearchController : ControllerBase
     }
 
     [HttpPut("UpdateResearchProject")]
-    public async Task<IActionResult> UpdateResearchProject([FromBody] CreateResearchProjectDto updateDto)
+    public async Task<IActionResult> UpdateResearchProject([FromForm] CreateResearchProjectDto updateDto)
     {
         await _researchInputPort.UpdateResearchProjectAsync(updateDto);
         var response = _researchOutPort.GetResponse;

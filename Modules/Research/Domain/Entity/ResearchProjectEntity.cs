@@ -3,14 +3,14 @@
 public record ResearchProjectEntity
 {
     public int Id { get; set; }
-    public string Name { get; set; }
-    public string Description { get; set; }
-    public string Summary { get; set; }
+    public string Name { get; set; } = string.Empty;
+    public string Description { get; set; } = string.Empty;
+    public string Summary { get; set; } = string.Empty;
     public DateTime Date { get; set; }
-    public string Doi { get; set; }
-    public string Authors { get; set; }
-    public string Pdf { get; set; }
-    public string Editor { get; set; }
-
+    public string Doi { get; set; } = string.Empty;
+    public string Authors { get; set; } = string.Empty;
+    public string Pdf { get; set; } = string.Empty;
+    public string Editor { get; set; } = string.Empty;
+    public string Year { get; set; } = string.Empty;
     public int IdTeacher { get; set; }
 }

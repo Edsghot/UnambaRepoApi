@@ -11,6 +11,7 @@ using MimeKit;
 using UnambaRepoApi.Model.Dtos.TeachingExperienceDto;
 using UnambaRepoApi.Model.Dtos.ThesisAdvisingExperience;
 using UnambaRepoApi.Model.Dtos.WorkExperience;
+using UnambaRepoApi.Modules.Research.Domain.Entity;
 using SmtpClient = MailKit.Net.Smtp.SmtpClient;
 using TeachingExperienceDto = UnambaRepoApi.Model.Dtos.Teacher.TeachingExperienceDto;
 using ThesisAdvisingExperienceDto = UnambaRepoApi.Model.Dtos.Teacher.ThesisAdvisingExperienceDto;
@@ -389,6 +390,30 @@ public class TeacherAdapter : ITeacherInputPort
 
         await _teacherRepository.DeleteAsync(experience);
         _teacherOutPort.Ok("Experiencia laboral eliminada exitosamente.");
+    }
+
+    public async Task<List<StatDto>> GetTeacherStatsAsync(int teacherId)
+    {
+        var projects =
+            await _teacherRepository.GetAllAsync<ResearchProjectEntity>(x => x.Where(x => x.IdTeacher == teacherId));
+        var articles =
+            await _teacherRepository.GetAllAsync<ScientificArticleEntity>(x => x.Where(x => x.IdTeacher == teacherId));
+
+        var stats = new List<StatDto>
+        {
+            new()
+            {
+                Title = "Total de proyectos", Total = projects.Count().ToString(), Rate = "0.43%", LevelUp = true,
+                Icon = "BookCopy"
+            },
+            new()
+            {
+                Title = "Total de artículos", Total = articles.Count().ToString(), Rate = "4.35%", LevelUp = true,
+                Icon = "Newspaper"
+            }
+        };
+
+        return stats;
     }
 
     #endregion
