@@ -41,6 +41,6 @@ public interface ITeacherInputPort
     Task CreateWorkExperienceAsync(CreateWorkExperienceDto createDto);
     Task UpdateWorkExperienceAsync(WorkExperienceDto updateDto);
     Task DeleteWorkExperienceAsync(int id);
-    Task<ReportDataDto> GetTeacherStatsAsync(int teacherId);
+    Task GetTeacherStatsAsync(int teacherId);
     Task UpdateTeacherAsync(UpdateTeacherDto updateDto);
 }

@@ -448,13 +448,13 @@ public class TeacherAdapter : ITeacherInputPort
         return "";
     }
 
-    public async Task<ReportDataDto> GetTeacherStatsAsync(int teacherId)
+    public async Task GetTeacherStatsAsync(int teacherId)
     {
         var teacher = await _teacherRepository.GetAsync<TeacherEntity>(x => x.Id == teacherId);
         if (teacher == null)
         {
             _teacherOutPort.NotFound("Docente no encontrado.");
-            return null;
+            return;
         }
 
         var user = new UserDto
@@ -516,13 +516,15 @@ public class TeacherAdapter : ITeacherInputPort
         tabla.AddRange(latestArticles.Select(a => new TablaDto
             { Name = a.Name, Date = a.Date.ToString("dd/MM/yyyy") }));
 
-        return new ReportDataDto
+        var dataRes = new ReportDataDto
         {
             User = user,
             Stats = stats,
             Grafico = grafico,
             Tabla = tabla
         };
+
+        _teacherOutPort.Success(dataRes, "data");
     }
 
     #endregion
