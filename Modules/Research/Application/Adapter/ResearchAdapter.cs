@@ -44,8 +44,6 @@ public class ResearchAdapter : IResearchInputPort
             Pdf = await UploadPdf(createDto.File, "research"),
             Authors = createDto.Authors,
             Date = _peruDateTime,
-            Doi = createDto.Doi,
-            Editor = createDto.Editor,
             Summary = createDto.Summary,
             Year = createDto.Year
         };
@@ -67,8 +65,6 @@ public class ResearchAdapter : IResearchInputPort
         researchProject.IdTeacher = updateDto.IdTeacher;
         researchProject.Authors = updateDto.Authors;
         researchProject.Date = _peruDateTime;
-        researchProject.Doi = updateDto.Doi;
-        researchProject.Editor = updateDto.Editor;
         researchProject.Summary = updateDto.Summary;
         researchProject.Year = updateDto.Year;
 

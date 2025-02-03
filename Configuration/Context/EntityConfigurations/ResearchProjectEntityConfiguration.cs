@@ -24,8 +24,6 @@ public class ResearchProjectEntityConfiguration : IEntityTypeConfiguration<Resea
         builder.Property(rp => rp.Date)
             .IsRequired();
 
-        builder.Property(rp => rp.Doi)
-            .HasMaxLength(100);
 
         builder.Property(rp => rp.Authors)
             .HasMaxLength(500);
@@ -33,7 +31,6 @@ public class ResearchProjectEntityConfiguration : IEntityTypeConfiguration<Resea
         builder.Property(rp => rp.Pdf)
             .HasMaxLength(500);
 
-        builder.Property(rp => rp.Editor)
-            .HasMaxLength(255);
+
     }
 }
