@@ -479,6 +479,18 @@ public class TeacherAdapter : ITeacherInputPort
             {
                 Title = "Total de artículos", Total = articles.Count().ToString(), Rate = "4.35%", LevelUp = true,
                 Icon = "Newspaper"
+            },
+            
+            new()
+            {
+                Title = "Ultimos proyectos", Total = "2", Rate = "2.35%", LevelUp = true,
+                Icon = "CalendarArrowUp"
+            },
+            
+            new()
+            {
+                Title = "Total de likes", Total = "5", Rate = "0.35%", LevelUp = true,
+                Icon = "ThumbsUp"
             }
         };
 
