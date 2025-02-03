@@ -107,7 +107,7 @@ public class TeacherAdapter : ITeacherInputPort
         var code = GenerateCode();
 
         var message = new MimeMessage();
-        message.From.Add(new MailboxAddress("Unamba Virtual", _smtpUser));
+        message.From.Add(new MailboxAddress("UnambaVirtual", _smtpUser));
         message.To.Add(new MailboxAddress("", toEmail));
         message.Subject = "Código de verificación";
 
