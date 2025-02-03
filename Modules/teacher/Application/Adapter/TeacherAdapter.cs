@@ -407,24 +407,24 @@ public class TeacherAdapter : ITeacherInputPort
             return;
         }
 
-        teacher.FirstName = updateDto.FirstName;
-        teacher.LastName = updateDto.LastName;
-        teacher.Dni = updateDto.Dni;
-        teacher.School = updateDto.School ?? 1;
-        teacher.Mail = updateDto.Mail;
-        teacher.Phone = updateDto.Phone;
-        teacher.Password = updateDto.Password;
-        teacher.Gender = updateDto.Gender ?? false;
-        teacher.BirthDate = updateDto.BirthDate ?? DateTime.MinValue;
-        teacher.RegistrationCode = updateDto.RegistrationCode;
-        teacher.Facebook = updateDto.Facebook;
-        teacher.Description = updateDto.Description;
-        teacher.Instagram = updateDto.Instagram;
-        teacher.LinkedIn = updateDto.LinkedIn;
-        teacher.Orcid = updateDto.Orcid;
-        teacher.Scopus = updateDto.Scopus;
-        teacher.Concytec = updateDto.Concytec;
-        teacher.Position = updateDto.Position;
+        teacher.FirstName = updateDto.FirstName ?? teacher.FirstName;
+        teacher.LastName = updateDto.LastName ?? teacher.LastName;
+        teacher.Dni = updateDto.Dni ?? teacher.Dni;
+        teacher.School = updateDto.School ?? teacher.School;
+        teacher.Mail = updateDto.Mail ?? teacher.Mail;
+        teacher.Phone = updateDto.Phone ?? teacher.Phone;
+        teacher.Password = updateDto.Password ?? teacher.Password;
+        teacher.Gender = updateDto.Gender ?? teacher.Gender;
+        teacher.BirthDate = updateDto.BirthDate ?? teacher.BirthDate;
+        teacher.RegistrationCode = updateDto.RegistrationCode ?? teacher.RegistrationCode;
+        teacher.Facebook = updateDto.Facebook ?? teacher.Facebook;
+        teacher.Description = updateDto.Description ?? teacher.Description;
+        teacher.Instagram = updateDto.Instagram ?? teacher.Instagram;
+        teacher.LinkedIn = updateDto.LinkedIn ?? teacher.LinkedIn;
+        teacher.Orcid = updateDto.Orcid ?? teacher.Orcid;
+        teacher.Scopus = updateDto.Scopus ?? teacher.Scopus;
+        teacher.Concytec = updateDto.Concytec ?? teacher.Concytec;
+        teacher.Position = updateDto.Position ?? teacher.Position;
 
         if (updateDto.Image != null) teacher.Image = await UploadImage(updateDto.Image, "teacher");
 
