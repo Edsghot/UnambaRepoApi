@@ -11,7 +11,6 @@ public record ScientificArticleEntity
     public string Authors { get; set; } = string.Empty;
     public string Pdf { get; set; } = string.Empty;
     public int IdNivel { get; set; }
-    public string Editor { get; set; } = string.Empty;
     public int Estatus { get; set; }
     public int IdTeacher { get; set; }
 }

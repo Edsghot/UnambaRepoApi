@@ -34,7 +34,5 @@ public class ScientificArticleEntityConfiguration : IEntityTypeConfiguration<Sci
             .HasMaxLength(500);
         builder.Property(sa => sa.IdNivel);
 
-        builder.Property(sa => sa.Editor)
-            .HasMaxLength(255);
     }
 }

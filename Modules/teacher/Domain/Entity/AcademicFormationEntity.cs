@@ -8,6 +8,5 @@ public record AcademicFormationEntity
     public string StudyCenter { get; set; } = string.Empty;
     public string CountryOfStudy { get; set; } = string.Empty;
     public string Source { get; set; } = string.Empty;
-    public string Actions { get; set; } = string.Empty;
     public int IdTeacher { get; set; }    
 }

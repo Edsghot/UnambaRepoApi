@@ -33,10 +33,6 @@ public class AcademicFormationEntityConfiguration : IEntityTypeConfiguration<Aca
             .IsRequired()
             .HasMaxLength(200);
 
-        builder.Property(af => af.Actions)
-            .IsRequired()
-            .HasMaxLength(200);
-
         builder.HasOne<TeacherEntity>()
             .WithMany()
             .HasForeignKey(af => af.IdTeacher)

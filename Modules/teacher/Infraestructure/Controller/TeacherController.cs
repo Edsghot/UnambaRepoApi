@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using UnambaRepoApi.Model.Dtos.AcademicFormation;
 using UnambaRepoApi.Model.Dtos.Teacher;
 using UnambaRepoApi.Model.Dtos.TeachingExperienceDto;
 using UnambaRepoApi.Model.Dtos.ThesisAdvisingExperience;
@@ -233,6 +234,46 @@ public class TeacherController : ControllerBase
         await _teacherInputPort.UpdateTeacherAsync(data);
         var response = _teacherOutPort.GetResponse;
 
+        return Ok(response);
+    }
+
+    [HttpGet("GetAllEducationFormationsByTeacherId/{teacherId}")]
+    public async Task<IActionResult> GetAllByTeacherId(int teacherId)
+    {
+        await _teacherInputPort.GetAllEducationFormationsByTeacherIdAsync(teacherId);
+        var response = _teacherOutPort.GetResponse;
+        return Ok(response);
+    }
+
+    [HttpGet("GetEducationFormationById/{id}")]
+    public async Task<IActionResult> GetEducationFormationById(int id)
+    {
+        await _teacherInputPort.GetEducationFormationByIdAsync(id);
+        var response = _teacherOutPort.GetResponse;
+        return Ok(response);
+    }
+
+    [HttpPost("CreateEducationFormation")]
+    public async Task<IActionResult> CreateEducationFormation([FromBody] CreateAcademicFormationDto createDto)
+    {
+        await _teacherInputPort.CreateEducationFormationAsync(createDto);
+        var response = _teacherOutPort.GetResponse;
+        return Ok(response);
+    }
+
+    [HttpPut("UpdateEducationFormation")]
+    public async Task<IActionResult> UpdateEducationFormation([FromBody] UpdateAcademicFormationDto updateDto)
+    {
+        await _teacherInputPort.UpdateEducationFormationAsync(updateDto);
+        var response = _teacherOutPort.GetResponse;
+        return Ok(response);
+    }
+
+    [HttpDelete("DeleteEducationFormation/{id}")]
+    public async Task<IActionResult> DeleteEducationFormation(int id)
+    {
+        await _teacherInputPort.DeleteEducationFormationAsync(id);
+        var response = _teacherOutPort.GetResponse;
         return Ok(response);
     }
 }

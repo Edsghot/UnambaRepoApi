@@ -10,6 +10,7 @@ using UnambaRepoApi.Modules.Teacher.Domain.Entity;
 using UnambaRepoApi.Modules.Teacher.Domain.IRepository;
 using MailKit.Net.Smtp;
 using MimeKit;
+using UnambaRepoApi.Model.Dtos.AcademicFormation;
 using UnambaRepoApi.Model.Dtos.TeachingExperienceDto;
 using UnambaRepoApi.Model.Dtos.ThesisAdvisingExperience;
 using UnambaRepoApi.Model.Dtos.WorkExperience;
@@ -480,13 +481,13 @@ public class TeacherAdapter : ITeacherInputPort
                 Title = "Total de artículos", Total = articles.Count().ToString(), Rate = "4.35%", LevelUp = true,
                 Icon = "Newspaper"
             },
-            
+
             new()
             {
                 Title = "Ultimos proyectos", Total = "2", Rate = "2.35%", LevelUp = true,
                 Icon = "CalendarArrowUp"
             },
-            
+
             new()
             {
                 Title = "Total de likes", Total = "5", Rate = "0.35%", LevelUp = true,
@@ -540,4 +541,60 @@ public class TeacherAdapter : ITeacherInputPort
     }
 
     #endregion
+
+    //===========================================Formacion academica
+    public async Task GetAllEducationFormationsByTeacherIdAsync(int teacherId)
+    {
+        var formations =
+            await _teacherRepository.GetAllAsync<AcademicFormationEntity>(x => x.Where(x => x.IdTeacher == teacherId));
+        var formationDtos = formations.Adapt<List<UpdateAcademicFormationDto>>();
+        _teacherOutPort.Success(formationDtos, "DATA");
+    }
+
+    public async Task GetEducationFormationByIdAsync(int id)
+    {
+        var formation = await _teacherRepository.GetAsync<AcademicFormationEntity>(x => x.Id == id);
+        if (formation == null)
+        {
+            _teacherOutPort.NotFound("Formación académica no encontrada.");
+            return;
+        }
+
+        var formationDto = formation.Adapt<UpdateAcademicFormationDto>();
+        _teacherOutPort.Success(formationDto, "DATA");
+    }
+
+    public async Task CreateEducationFormationAsync(CreateAcademicFormationDto createDto)
+    {
+        var formation = createDto.Adapt<AcademicFormationEntity>();
+        await _teacherRepository.AddAsync(formation);
+        _teacherOutPort.Ok("Formación académica creada exitosamente.");
+    }
+
+    public async Task UpdateEducationFormationAsync(UpdateAcademicFormationDto updateDto)
+    {
+        var formation = await _teacherRepository.GetAsync<AcademicFormationEntity>(x => x.Id == updateDto.Id);
+        if (formation == null)
+        {
+            _teacherOutPort.NotFound("Formación académica no encontrada.");
+            return;
+        }
+
+        formation = updateDto.Adapt(formation);
+        await _teacherRepository.UpdateAsync(formation);
+        _teacherOutPort.Ok("Formación académica actualizada exitosamente.");
+    }
+
+    public async Task DeleteEducationFormationAsync(int id)
+    {
+        var formation = await _teacherRepository.GetAsync<AcademicFormationEntity>(x => x.Id == id);
+        if (formation == null)
+        {
+            _teacherOutPort.NotFound("Formación académica no encontrada.");
+            return;
+        }
+
+        await _teacherRepository.DeleteAsync(formation);
+        _teacherOutPort.Ok("Formación académica eliminada exitosamente.");
+    }
 }

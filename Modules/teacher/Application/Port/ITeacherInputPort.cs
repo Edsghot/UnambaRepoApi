@@ -1,4 +1,5 @@
-﻿using UnambaRepoApi.Model.Dtos.Teacher;
+﻿using UnambaRepoApi.Model.Dtos.AcademicFormation;
+using UnambaRepoApi.Model.Dtos.Teacher;
 using UnambaRepoApi.Model.Dtos.TeachingExperienceDto;
 using UnambaRepoApi.Model.Dtos.ThesisAdvisingExperience;
 using UnambaRepoApi.Model.Dtos.User;
@@ -43,4 +44,9 @@ public interface ITeacherInputPort
     Task DeleteWorkExperienceAsync(int id);
     Task GetTeacherStatsAsync(int teacherId);
     Task UpdateTeacherAsync(UpdateTeacherDto updateDto);
+    Task GetAllEducationFormationsByTeacherIdAsync(int teacherId);
+    Task GetEducationFormationByIdAsync(int id);
+    Task CreateEducationFormationAsync(CreateAcademicFormationDto createDto);
+    Task UpdateEducationFormationAsync(UpdateAcademicFormationDto updateDto);
+    Task DeleteEducationFormationAsync(int id);
 }

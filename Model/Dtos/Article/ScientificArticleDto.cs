@@ -11,7 +11,6 @@ public record ScientificArticleDto
     public string Doi { get; set; }
     public string Authors { get; set; }
     public string Pdf { get; set; }
-    public string Editor { get; set; }
     public int? Estatus { get; set; }
     public int IdNivel { get; set; }
 }

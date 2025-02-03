@@ -10,10 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e2577dc-0d5a-48b6-8574-a4052f0d118c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Configuration/Context/EntityConfigurations/AcademicFormationEntityConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/Dtos/AcademicFormation/CreateAcademicFormationDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/Dtos/AcademicFormation/UpdateAcademicFormationDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnambaRepoApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnambaRepoApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Configuration/Context/MySqlContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Configuration/Context/MySqlContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Dtos/Teacher/UpdateTeacherDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Dtos/Teacher/UpdateTeacherDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/teacher/Application/Adapter/TeacherAdapter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/teacher/Application/Adapter/TeacherAdapter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/teacher/Application/Port/ITeacherInputPort.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/teacher/Application/Port/ITeacherInputPort.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/teacher/Infraestructure/Controller/TeacherController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/teacher/Infraestructure/Controller/TeacherController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +152,7 @@
       <workItem from="1736349798592" duration="389000" />
       <workItem from="1736390736935" duration="949000" />
       <workItem from="1738431933072" duration="26630000" />
-      <workItem from="1738516439464" duration="20433000" />
+      <workItem from="1738516439464" duration="21936000" />
     </task>
     <servers />
   </component>
@@ -166,13 +168,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Modules/teacher/Application/Adapter/TeacherAdapter.cs</url>
-          <line>63</line>
+          <line>64</line>
           <properties documentPath="C:\Users\LUVI\source\repos\UnambaRepoApi\Modules\teacher\Application\Adapter\TeacherAdapter.cs" containingFunctionPresentation="Method 'GetAllAsync'">
             <startOffsets>
-              <option value="2385" />
+              <option value="2435" />
             </startOffsets>
             <endOffsets>
-              <option value="2386" />
+              <option value="2436" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
