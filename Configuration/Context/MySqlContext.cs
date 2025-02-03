@@ -37,5 +37,6 @@ public class MySqlContext : DbContext
         modelBuilder.ApplyConfiguration(new ScientificArticleEntityConfiguration());
         modelBuilder.ApplyConfiguration(new ResearchProjectEntityConfiguration());
         modelBuilder.ApplyConfiguration(new ValidateEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new AcademicFormationEntityConfiguration());
     }
 }

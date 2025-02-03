@@ -13,7 +13,7 @@ public class UpdateTeacherDto
     public bool? Gender { get; set; }
     public DateTime? BirthDate { get; set; }
     public string? RegistrationCode { get; set; } = string.Empty;
-    public IFormFile Image { get; set; }
+    public IFormFile? Image { get; set; }
     public string? Facebook { get; set; }
     public string? Description { get; set; } = string.Empty;
     public string? Instagram { get; set; }
