@@ -168,7 +168,7 @@ public class TeacherAdapter : ITeacherInputPort
             FirstName = teacherDto.FirstName,
             LastName = teacherDto.LastName,
             Dni = teacherDto.Dni, // ✅ Agregado
-            School = teacherDto.School, // ✅ Agregado
+            School = teacherDto.School ?? 0, // ✅ Agregado
             Mail = teacherDto.Mail,
             Password = teacherDto.Password,
             RegistrationCode = teacherDto.RegistrationCode ?? string.Empty,
@@ -410,12 +410,12 @@ public class TeacherAdapter : ITeacherInputPort
         teacher.FirstName = updateDto.FirstName;
         teacher.LastName = updateDto.LastName;
         teacher.Dni = updateDto.Dni;
-        teacher.School = updateDto.School;
+        teacher.School = updateDto.School ?? 1;
         teacher.Mail = updateDto.Mail;
         teacher.Phone = updateDto.Phone;
         teacher.Password = updateDto.Password;
-        teacher.Gender = updateDto.Gender;
-        teacher.BirthDate = updateDto.BirthDate;
+        teacher.Gender = updateDto.Gender ?? false;
+        teacher.BirthDate = updateDto.BirthDate ?? DateTime.MinValue;
         teacher.RegistrationCode = updateDto.RegistrationCode;
         teacher.Facebook = updateDto.Facebook;
         teacher.Description = updateDto.Description;
