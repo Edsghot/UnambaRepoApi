@@ -11,7 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5e2577dc-0d5a-48b6-8574-a4052f0d118c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnambaRepoApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnambaRepoApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/teacher/Application/Adapter/TeacherAdapter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/teacher/Application/Adapter/TeacherAdapter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Research/Application/Adapter/ResearchAdapter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Research/Application/Adapter/ResearchAdapter.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +148,7 @@
       <workItem from="1736349798592" duration="389000" />
       <workItem from="1736390736935" duration="949000" />
       <workItem from="1738431933072" duration="26630000" />
-      <workItem from="1738516439464" duration="13743000" />
+      <workItem from="1738516439464" duration="14773000" />
     </task>
     <servers />
   </component>
@@ -174,6 +174,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Modules/Research/Infraestructure/Controller/ResearchController.cs</url>
+          <line>97</line>
+          <properties documentPath="C:\Users\LUVI\source\repos\UnambaRepoApi\Modules\Research\Infraestructure\Controller\ResearchController.cs" containingFunctionPresentation="Method 'UpdateScientificArticle'">
+            <startOffsets>
+              <option value="3185" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3186" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

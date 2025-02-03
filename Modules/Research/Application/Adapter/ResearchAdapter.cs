@@ -162,6 +162,8 @@ public class ResearchAdapter : IResearchInputPort
     public async Task UpdateScientificArticleAsync(CreateScientificArticleDto updateDto)
     {
         var article = await _researchRepository.GetAsync<ScientificArticleEntity>(x => x.Id == updateDto.Id);
+
+        var teacher = article.IdTeacher;
         if (article == null)
         {
             _researchOutPort.NotFound("Artículo científico no encontrado.");
@@ -169,6 +171,7 @@ public class ResearchAdapter : IResearchInputPort
         }
 
         article = updateDto.Adapt(article);
+        article.IdTeacher = teacher;
         await _researchRepository.UpdateAsync(article);
         _researchOutPort.Ok("Artículo científico actualizado exitosamente.");
     }
