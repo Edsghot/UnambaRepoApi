@@ -41,7 +41,7 @@ public class ResearchAdapter : IResearchInputPort
             Name = createDto.Title,
             Description = createDto.Description,
             IdTeacher = createDto.IdTeacher,
-            Pdf = await UploadPdf(createDto.File, "research"),
+            Pdf = await UploadPdfAsync(createDto.File, "research"),
             Authors = createDto.Authors,
             Date = _peruDateTime,
             Summary = createDto.Summary,
@@ -68,7 +68,7 @@ public class ResearchAdapter : IResearchInputPort
         researchProject.Summary = updateDto.Summary;
         researchProject.Year = updateDto.Year;
 
-        if (updateDto.File != null) researchProject.Pdf = await UploadPdf(updateDto.File, "research");
+        if (updateDto.File != null) researchProject.Pdf = await UploadPdfAsync(updateDto.File, "research");
 
         await _researchRepository.UpdateAsync(researchProject);
         _researchOutPort.Ok("Proyecto de investigación actualizado exitosamente.");
@@ -216,26 +216,35 @@ public class ResearchAdapter : IResearchInputPort
         _researchOutPort.Success(articleDtos, "data");
     }
 
-    private async Task<string> UploadPdf(IFormFile file, string folder)
+    private async Task<string> UploadPdfAsync(IFormFile file, string folder)
     {
         try
         {
             var account = new Account("dd0qlzyyk", "952839112726724", "7fxZGsz7Lz2vY5Ahp6spldgMTW4");
+            var cloudinary = new Cloudinary(account);
+            cloudinary.Api.Secure = true; // Asegurar HTTPS
+
             await using var stream = file.OpenReadStream();
+
             var uploadParams = new RawUploadParams
             {
                 File = new FileDescription(file.FileName, stream),
-                Folder = folder
+                Folder = folder,
+                Type = "upload", // Asegura que sea accesible públicamente
+                Overwrite = true, // Reemplazar archivo si ya existe
+                UseFilename = true, // Mantener nombre original
+                UniqueFilename = false // Evita sufijos aleatorios en el nombre
             };
 
-            var uploadResult = await _cloudinary.UploadAsync(uploadParams);
+            var uploadResult = await cloudinary.UploadAsync(uploadParams);
 
-            if (uploadResult.StatusCode == System.Net.HttpStatusCode.OK) return uploadResult.Url.AbsoluteUri;
+            if (uploadResult.StatusCode == System.Net.HttpStatusCode.OK)
+                return uploadResult.SecureUrl.AbsoluteUri; // Devuelve URL accesible públicamente
+
             return "";
         }
         catch (Exception ex)
         {
-            // Manejo de la excepción, por ejemplo, registrar el error
             Console.WriteLine($"Error al subir el archivo PDF: {ex.Message}");
             return "";
         }

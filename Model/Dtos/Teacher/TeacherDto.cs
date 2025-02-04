@@ -10,7 +10,7 @@ public record TeacherDto
     public string Password { get; set; } = string.Empty;
     public bool Gender { get; set; }
     public DateTime BirthDate { get; set; }
-    public string RegistrationCode { get; set; } = string.Empty;
+    public string Concytec { get; set; } = string.Empty;
     public string Image { get; set; } = string.Empty;
     public string? Facebook { get; set; }
     public string? Instagram { get; set; }
