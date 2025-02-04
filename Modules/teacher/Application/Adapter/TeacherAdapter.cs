@@ -488,11 +488,6 @@ public class TeacherAdapter : ITeacherInputPort
                 Icon = "CalendarArrowUp"
             },
 
-            new()
-            {
-                Title = "Total de likes", Total = "5", Rate = "0.35%", LevelUp = true,
-                Icon = "ThumbsUp"
-            }
         };
 
         var projectData = new int[12];
